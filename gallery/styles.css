@@ -1,0 +1,81 @@
+
+header
+{
+	float: left;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+nav
+{
+	float: right;
+	background-color: white;
+	width: 25%;
+}
+
+ul
+{
+	list-style: none;
+	text-decoration: none;
+}
+
+li 
+{
+	display: block;
+	display: inline;
+	text-decoration: none;
+	word-spacing: 5px;
+}
+
+h1
+{
+	font-size:30px;
+	text-align: center;
+
+}
+hr
+{
+	width: 50%;
+}
+li a
+{ display: inline;
+  text-decoration: none; 
+  font-size: 18px;
+}
+
+footer
+{
+ bottom: 5px;
+ background-color: teal;
+ text-align: center;
+ width: 100%;
+ left: 0;
+ color: white;
+ }
+ .accordion {
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 300px;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.centers
+{
+	text-align: center;
+}
