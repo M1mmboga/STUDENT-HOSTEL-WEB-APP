@@ -142,7 +142,7 @@
 
 </div>
 
-<h6 style="color: black;">danger</h6>
+<h6 style="color: black;">DISASTER</h6>
 <!-- website footer-->
 	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
