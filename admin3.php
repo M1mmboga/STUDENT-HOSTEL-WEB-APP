@@ -103,15 +103,15 @@
 
 <table border="0" style="color: black; font-weight: bold;">
 <tr>
-<td><a href="add_product.php"><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px; padding-left: 110px;"></a></td>
+<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px; padding-left: 110px;"></a></td>
 <td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
 <td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
 <td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
 </tr>
 
 <tr>
-<td style="padding-left: 110px;">View Accommodation</td>
-<td>Add Accommodation</td>
+<td style="padding-left: 110px;"><input type="button" style="background-color: white; border-color: none; border-style: none; font-size: 20px; font-weight: bold;" value="View All Accommodations" onclick="opengallery()"></td>
+<td><input type="button" style="background-color: white; border-color: none; border-style: none; font-size: 20px; font-weight: bold;" value="Add Accommodation" onclick="openpopup()"></td>
 <td>Update Accommodation</td>
 <td>Delete Accommodation</td>
 </tr>
@@ -141,5 +141,19 @@
 </table>
 
 
+<!-- pop up button script-->
+<script>
+	var mywindow;
+	var mywindow2;
+	function openpopup()
+	{
+		mywindow= window.open('add_product.php','_blank','height=500,width=500');
+	}
+
+	function opengallery()
+	{
+		mywindow2= window.open('display.php','_self');
+	}
+</script>
 </body>
 </html>

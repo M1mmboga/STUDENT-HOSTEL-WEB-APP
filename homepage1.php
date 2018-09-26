@@ -142,6 +142,27 @@
 
 </div>
 
+<!-- reviews part-->
+<div class="reviews">
+
+	<p style="text-align: center; font-size: 30px; color: black;font-family: papyrus;">Student reviews</p>
+	<hr style="width: 120px;">
+		
+	</style>>
+	<table style="text-align: center; color: black; font-size: 28px; ">
+		<tr style="font-weight: bold; font-family: papyrus; ">
+				<td>Jane Njeri</td>
+				<td>Collete Consesa</td>
+				<td>Brian Bundi</td>
+			</tr>
+		<tr style="font-style: italic; font-family: papyrus;">
+			<td>An amazing student living site...</td>
+		<td>Good service by the facilitators...</td>
+		<td>What pulled me to My Hostel is the affordable prices...</td>
+	</tr>
+	</table>
+	
+</div>
 <!-- website footer-->
 	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>

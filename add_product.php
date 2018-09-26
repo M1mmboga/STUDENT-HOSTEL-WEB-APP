@@ -84,6 +84,10 @@ if(isset($_POST["submit1"]))
 	move_uploaded_file($_FILES["himage"]["tmp_name"],$dst);
 
 	mysqli_query($link,"insert into products values('','$_POST[hname]','$_POST[hprice]','$_POST[hrooms]','$dst1','$_POST[hcategory]','$_POST[hdescription]','$_POST[locate]')");
+
+	echo '<script type="text/javascript">
+	window.onload = function(){alert("New Accommodation Has Been Successffuly Added!");}
+	</script>';
 }
 
 ?>

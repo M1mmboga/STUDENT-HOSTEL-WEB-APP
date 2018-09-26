@@ -61,7 +61,7 @@ mysqli_select_db($link,"myhostel");
 </div>
 
 <!-- website footer-->
-	<footer>
+	<footer style="position: fixed;">
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
 	</footer>
