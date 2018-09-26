@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,7 +126,7 @@
 	</ul>
 
 
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation</i></h1>
+<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation <?php echo $_SESSION['username']; ?></i></h1>
 </div>
 
 <!-- Slideshow images-->
