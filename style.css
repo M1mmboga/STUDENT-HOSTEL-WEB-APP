@@ -11,7 +11,7 @@
 body {
   background: hsla(255, 255%, 255%, 1);
   font: 100%/1 'Lobster', cursive;
-  background-color: grey;
+  background-image:url(login2.png);
 }
 
 .login {
@@ -67,8 +67,8 @@ body {
 }
 .Sign-Up:hover > .header > .text, .Sign-Up.clicked > .header > .text {
   font-size: 1rem;
-  -webkit-transform: rotate(-900deg);
-  transform: rotate(-900deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 .Sign-Up.loading > .header {
   width: 20rem;
@@ -211,7 +211,31 @@ body {
 .btn:hover:after, .btn:focus:after, .btn:active:after {
   border-left-color: hsla(0, 5%, 0%, 1);
 }
+.resetbtn1{
+  position:absolute;
+  bottom: 60px;
+  left: 300px;
+  margin:1%;
+  border:none;
+  padding:.5em;
+  width:5em;
+  background:hsla(0,0%,0%,1);
+  color:hsla(255,255%,255%,1);
+  font-size:1.5em;
+  border-radius:2px;
+  transition:all 1s ease-in-out;
+  outline:none;
+  box-shadow:0 0 1px 1px hsla(0,0%,0%,0.2);
+}
+.resetbtn1:hover, .resetbtn:focus{
+  background:hsla(255,255%,255%,1);
+  color:hsla(0,0%,0%,1);
+  outline:5px solid hsla(0,0%,0%,1);
+}
 .resetbtn{
+  position:absolute;
+  bottom: 60px;
+  left: 710px;
   margin:1%;
   border:none;
   padding:.5em;
