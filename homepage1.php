@@ -70,7 +70,7 @@
 
 		images[0]='image8.jpg';
 		images[1]='image9.jpg';
-		images[2]='image10.jpg';
+		images[2]='living2.jpg';
 		images[3]='image8.jpg';
 
 		function changeImg()
@@ -98,8 +98,8 @@
 		<li><a href="contacts.html">Contact us</a></li>
 		<li><a>My Account</a>
 			 <ul>
-        		<li><a href="signup.html">Log In</a></li>
-        		<li><a href="signup.html">Create An Account</a></li>
+        		<li><a href="#">Log In</a></li>
+        		<li><a href="#">Create An Account</a></li>
        		 </ul>
 		</li>
 		<li><a>Find Help</a>
