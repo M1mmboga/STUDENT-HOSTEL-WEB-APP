@@ -5,34 +5,36 @@ mysqli_select_db($link,"myhostel");
 
 ?>
 
+<span style="color: white; font-size: 
+26px; border-style: solid; background-color: teal;"><i>Enter a new accommodation to the website.</i></span><br>
 <form name="uploadform" action="" method="post" enctype="multipart/form-data">
 	
 	<table>
 
 		<tr>
 			<td>House Name</td>
-			<td><input type="text" name="hname"></td>
+			<td><input type="text" name="hname" required></td>
 		</tr>
 
 		<tr>
 			<td>House Price</td>
-			<td><input type="text" name="hprice"></td>
+			<td><input type="text" name="hprice" required></td>
 		</tr>
 
 		<tr>
 			<td>Number of rooms</td>
-			<td><input type="text" name="hrooms"></td>
+			<td><input type="text" name="hrooms" required></td>
 		</tr>
 
 		<tr>
 			<td>House Image</td>
-			<td><input type="file" name="himage"></td>
+			<td><input type="file" name="himage" required></td>
 		</tr>
 
 		<tr>
 			<td>House Category</td>
 			<td>
-				<select name="hcategory" >
+				<select name="hcategory" required>
 				<option value="Bedsitter">Bedsitter</option>
 				<option value="One Bedroom">One Bedroom</option>
 				<option value="Shared Room">Shared room</option>
@@ -44,14 +46,14 @@ mysqli_select_db($link,"myhostel");
 			<tr>
 			<td>House Desription</td>
 			<td>
-				<textarea cols="15" rows="10" name="hdescription"></textarea>
+				<textarea cols="15" rows="10" name="hdescription" required></textarea>
 			</td>
 		</tr>
 
 		<tr>
 			<td>Location</td>
 <td>
-				<select name="locate" >
+				<select name="locate" required>
 				<option value="nairobi">Nairobi</option>
 				<option value="nakuru">Nakuru</option>
 				<option value="mombasa">Mombasa</option>
