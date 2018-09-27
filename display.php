@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 $link=mysqli_connect("localhost","root","");
 mysqli_select_db($link,"myhostel");
 
@@ -17,13 +17,8 @@ mysqli_select_db($link,"myhostel");
 	<div class="nav">
 	<ul>
 
-		<li><a>Contact us</a></li>
-		<li><a>My Account</a>
-		<ul>
-			<li>Log In</li>
-			<li>Create An Account</li>
-		</ul>
-		</li>
+		<li><a href="logout.php">Log Out</a></li>
+		<li><a href="contacts.php">Contact us</a></li>
 
 		<li><a>Find Help</a>
  <ul>
@@ -45,7 +40,7 @@ mysqli_select_db($link,"myhostel");
 		<li><a href="homepage1.php">Home</a></li>
 	</ul>
 
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation</i></h1>
+<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
 </div>
 
 <div class="thetowns">

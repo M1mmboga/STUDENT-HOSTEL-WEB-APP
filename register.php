@@ -1,44 +1,3 @@
-<?php 
-
-session_start();
-
-//connect to database
-$db= mysqli_connect("localhost","root","","myhostel");
-
-if(isset($_POST['register_btn']))
-{
-	//session_start();
-	
-
-
-if($password == $password2)
-{
-//create user account
-$username=$_POST['username'];
-$email=$_POST['email'];
-$password = md5($password); //hash password before storing it for security
-$sql="INSERT INTO users (username,email,password) VALUES ('$username','$email','$password')";
-mysqli_query($db,$sql);
-$_SESSION['message'] = "You are successfully logged in";
-$_SESSION['username'] = $username;
-header("location: homepage1.php");// take me to home page
-
-
-}else
-{
-	//fail to create user
-	$_SESSION['message'] = "The two passwords do not match";
-		header("location: register.php");
-
-}
-
-
-}
-
-
-
-?>
-
 
 <!DOCTYPE html>
 <html>
@@ -53,7 +12,15 @@ body
 			font-family: Arial;
 			color: white;
 			width: 100%;
-		}
+			background: url('studentlife.png');
+			background-repeat: no-repeat;
+			height: 100%;
+			width: 100%;
+			position: fixed;
+			background-position: center;
+			background-attachment: fixed;
+
+					}
 		ul
 		{
 			margin: 0;
@@ -98,11 +65,11 @@ body
 		<div class="nav">
 	<ul>
 
-		<li><a href="contacts.html">Contact us</a></li>
+		<li><a>Contact us</a></li>
 		<li><a>My Account</a>
 			 <ul>
         		<li><a href="#">Log In</a></li>
-        		<li><a href="#">Create An Account</a></li>
+        		<li><a href="createAcc.php">Create An Account</a></li>
        		 </ul>
 		</li>
 		<li><a>Find Help</a>
@@ -117,80 +84,19 @@ body
 		<li><a>Services</a>
        		 <ul>
         		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Accommodation Gallery</a></li>
+        		<li><a>Accommodation Gallery</a></li>
         		<li><a>Mission &amp; Vision</a></li>
         		<li><a>Book Accommodation</a></li>
        		 </ul>
 		</li>
-		<li><a href="homepage1.php">Home</a></li>
+		<li><a>Home</a></li>
 	</ul>
 
 
 <h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation </i></h1>
 </div>
 
-<div class="mylogin" style="padding-left: 350px; ">
-	<div class="heading1">Proceed to Register, Login or Logout</div>
 
-	<form method="POST" action="register.php" style="float: center; color: black;">
-		<table >
-		<tr>
-		<td>First Name:</td>
-		<td><input type="text" name="username"  ></td>
-	</tr>	
-	
-	<tr>
-		<td>Email:</td>
-		<td><input type="email" name="email"  ></td>
-	</tr>	
-
-	<tr>
-		<td>Password:</td>
-		<td><input type="password" name="password"  ></td>
-	</tr>	
-
-	<tr>
-		<td>Confirm Password:</td>
-		<td><input type="password" name="password2"  ></td>
-	</tr>	
-
-	<tr>
-		<td></td>
-		<td><input type="submit" name="register_btn" value="Register" ></td>
-	</tr>	
-		</table>
-		
-	</form>
-
-
-</div>
-
-<!--
-<div class="login2" style="padding-left: 700px; padding-top: 0px;">
-		<form name="mylogin">
-		<table>
-
-			<tr>
-		<td>User Name:</td>
-		<td><input type="text" name="myusername"  ></td>
-	</tr>
-
-			<tr>
-		<td>Enter Password:</td>
-		<td><input type="password" name="mypassword"  ></td>
-	</tr>	
-
-
-	<tr>
-		<td></td>
-		<td><input type="submit" name="register_btn" value="Login" ></td>
-	</tr>	
-		</table>
-	</form>
-	</div>
-	 -->
-
-<hr style="transform:rotate(90deg); width: 300px;">
 
 
 </body>

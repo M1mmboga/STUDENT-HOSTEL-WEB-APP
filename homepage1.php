@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,13 +99,8 @@ session_start();
 	<div class="nav">
 	<ul>
 
-		<li><a href="contacts.html">Contact us</a></li>
-		<li><a>My Account</a>
-			 <ul>
-        		<li><a href="#">Log In</a></li>
-        		<li><a href="#">Create An Account</a></li>
-       		 </ul>
-		</li>
+		<li><a href="logout.php">Log Out</a></li>
+		<li><a href="contacts.php">Contact us</a></li>
 		<li><a>Find Help</a>
  <ul>
         		<li><a>Payment modes</a></li>
@@ -126,7 +122,7 @@ session_start();
 	</ul>
 
 
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation <?php echo $_SESSION['username']; ?></i></h1>
+<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
 </div>
 
 <!-- Slideshow images-->

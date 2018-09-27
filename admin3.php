@@ -69,13 +69,8 @@
 	<div class="nav">
 	<ul>
 
+		<li><a>Log Out</a></li>
 		<li><a href="contacts.html">Contact us</a></li>
-		<li><a>My Account</a>
-			 <ul>
-        		<li><a href="signup.html">Log In</a></li>
-        		<li><a href="signup.html">Create An Account</a></li>
-       		 </ul>
-		</li>
 		<li><a>Find Help</a>
  <ul>
         		<li><a>Payment modes</a></li>

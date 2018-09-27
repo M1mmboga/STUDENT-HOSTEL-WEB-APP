@@ -1,4 +1,8 @@
-<!DOCTYPE <!DOCTYPE html>
+<?php 
+session_start();
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -68,13 +72,8 @@ body
 <div class="nav">
 	<ul>
 
+		<li><a href="logout.php">Log Out</a></li>
 		<li><a href="contacts.html">Contact us</a></li>
-		<li><a>My Account</a>
-			 <ul>
-        		<li><a href="signup.html">Log In</a></li>
-        		<li><a href="signup.html">Create An Account</a></li>
-       		 </ul>
-		</li>
 		<li><a>Find Help</a>
  <ul>
         		<li><a>Payment modes</a></li>
@@ -96,7 +95,7 @@ body
 	</ul>
 
 
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation</i></h1>
+<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
 </div>
 
 <h1>Contact Us</h1><hr>
