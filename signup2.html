@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title></title>
+</head>
+<body style="background-image: url(login2.png);">
+
+	<header><b><p style="font-size: 25px; font-family:sans-serif;">ONLINE STUDENTS ACCOMMODATION<img src="logo.jpg" alt="Logo" style="width:100px; border-radius: 0; margin-left: 10px;"></p></b></header><br><br><br>
+	<nav>
+		<ul>
+			<li><a href="homepage.html">Home</a></li>
+			<li><a href="#">Services</a></li>
+			<li><a href="#">Help</a></li>
+			<li><a href="#">Contact us</a></li>
+		</ul>
+	</nav><br><br><br><br>
+
+<div class="login">
+  <header class="header">
+    <span class="text">LOGIN</span>
+    <span class="loader"></span>
+  </header>
+  <form class="form">  
+    <input class="input" type="text", placeholder="Studentname">
+    <input class="input" type="password" placeholder="Password">
+    <button class="btn" type="submit"></button><br>
+  </form>
+</div>
+
+<button class ="resetbtn1" type= "reset">Reset it
+</button>
+<script>
+$(document).ready(function() {
+  $('.input').on('focus', function() {
+    $('.login').addClass('clicked');
+  });
+  $('.login').on('submit', function(e) {
+    e.preventDefault();
+    $('.login').removeClass('clicked').addClass('loading');
+  });
+  $('.resetbtn').on('click', function(e){
+      e.preventDefault();
+    $('.login').removeClass('loading');
+  });
+});
+
+</script>
+
+<div class="Sign-Up">
+  <header class="header">
+    <span class="text">SIGN-UP</span>
+    <span class="loader"></span>
+  </header>
+  <form class="form"> 
+   <input class="input" type="text", placeholder="Studentname">
+    
+    <input class="input" type="password" placeholder="Password">
+
+
+    <button class="btn" type="submit"></button><br>
+  </form>
+</div>
+<button class ="resetbtn" type= "reset">Reset it
+</button>
+<script>
+$(document).ready(function() {
+  $('.input').on('focus', function() {
+    $('.Sign-Up').addClass('clicked');
+  });
+  $('.Sign-Up').on('submit', function(e) {
+    e.preventDefault();
+    $('.Sign-Up').removeClass('clicked').addClass('loading');
+  });
+  $('.resetbtn').on('click', function(e){
+      e.preventDefault();
+    $('.Sign-Up').removeClass('loading');
+  });
+});
+
+</script>
+
+
+		
+	
+
+</body>
+</html>
