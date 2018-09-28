@@ -6,7 +6,7 @@ if(isset($_POST['login_btn']))
 {
 	if(empty($_POST['username']) || empty($_POST['password']))
 	{
-		$error= "Username or Password is invalid";
+		$error= "Username or Password is missing";
 	}
 	else
 	{
@@ -108,7 +108,7 @@ body
 		<li><a>Contact us</a></li>
 		<li><a>My Account</a>
 			 <ul>
-        		<li><a href="#">Log In</a></li>
+        		<li><a href="login.php">Log In</a></li>
         		<li><a href="createAcc.php">Create An Account</a></li>
        		 </ul>
 		</li>
@@ -144,13 +144,13 @@ body
 		<table >
 		<tr>
 		<td>First Name:</td>
-		<td><input type="text" name="username"  ></td>
+		<td><input type="text" name="username"  required></td>
 	</tr>	
 	
 	
 	<tr>
 		<td>Password:</td>
-		<td><input type="password" name="password"  ></td>
+		<td><input type="password" name="password"  required></td>
 	</tr>	
 
 
@@ -163,6 +163,6 @@ body
 		</table>
 		
 	</form>
-</div> -->
+</div> 
 </body>
 </html>

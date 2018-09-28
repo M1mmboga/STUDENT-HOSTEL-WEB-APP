@@ -100,7 +100,7 @@ body
 		<li><a>Contact us</a></li>
 		<li><a>My Account</a>
 			 <ul>
-        		<li><a href="#">Log In</a></li>
+        		<li><a href="login.php">Log In</a></li>
         		<li><a href="createAcc.php">Create An Account</a></li>
        		 </ul>
 		</li>
