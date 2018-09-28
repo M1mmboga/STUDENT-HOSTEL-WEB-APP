@@ -46,7 +46,7 @@ mysqli_select_db($link,"myhostel");
 
 
 <?php 
-$res=mysqli_query($link,"select * from products where location='mombasa'");
+$res=mysqli_query($link,"select * from products where location='mombasa' order by id DESC");
 while($row=mysqli_fetch_array($res))
 {
 
