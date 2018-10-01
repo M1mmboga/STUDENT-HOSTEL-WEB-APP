@@ -69,8 +69,8 @@
 	<div class="nav">
 	<ul>
 
-		<li><a>Log Out</a></li>
-		<li><a href="contacts.html">Contact us</a></li>
+		<li><a href="logout.php">Log Out</a></li>
+		<li><a href="contacts.php">Contact us</a></li>
 		<li><a>Find Help</a>
  <ul>
         		<li><a>Payment modes</a></li>
@@ -83,12 +83,18 @@
 		<li><a>Services</a>
        		 <ul>
         		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Accommodation Gallery</a></li>
+        		<li><a href="displaytoadmin.php">Accommodation Gallery</a></li>
         		<li><a>Mission &amp; Vision</a></li>
         		<li><a>Book Accommodation</a></li>
        		 </ul>
 		</li>
-		<li><a href="homepage1.php">Home</a></li>
+		<li><a>Select Homepage</a>
+		<ul>
+			<li><a href="admin3.php">Admin Homepage</a></li>
+			<li><a href="homepage2.php">User Homepage</a></li>
+
+		</ul>
+	</li>
 	</ul>
 
 

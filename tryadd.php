@@ -1,8 +1,36 @@
 <?php 
 
-$link=mysqli_connect("localhost","root","");
-mysqli_select_db($link,"myhostel");
 
+
+if(isset($_POST["submit1"]))
+{
+
+$target = "./house_images/".basename($_FILES['himage']['name']);
+
+
+$link=mysqli_connect("localhost","root","","myhostel");
+
+
+		$image=$_FILES["himage"]["name"];
+
+
+
+	mysqli_query($link,"insert into products values('','$_POST[hname]','$_POST[hprice]','$_POST[hrooms]','$image','$_POST[hcategory]','$_POST[hdescription]','$_POST[locate]')");
+
+if(	move_uploaded_file($_FILES["himage"]["tmp_name"],$target)
+)
+{
+	echo '<script type="text/javascript">
+	window.onload = function(){alert("New Accommodation Has Been Successffuly Added!");}
+	</script>';
+}
+	else
+	{
+		echo '<script type="text/javascript">
+	window.onload = function(){alert("New Accommodation Has Not Been Successffuly Added!");}
+	</script>';
+	}
+}
 ?>
 
 <!DOCTYPE <!DOCTYPE html>
@@ -113,9 +141,6 @@ mysqli_select_db($link,"myhostel");
 <table border="0" style="color: black; font-weight: bold;">
 <tr>
 <td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-left: 10px;"></td>
-<td><img src="admin1.jpg" width="200px;" height="200px;" ></td>
-
-
 </tr>
 
 <tr>
@@ -136,7 +161,7 @@ mysqli_select_db($link,"myhostel");
 						<h4 class="modal-title">Add Accommodation</h4>
 				</div>
 				<div class="modal-body">
-				<form method="post" id="insert_form">
+				<form method="post" id="insert_form" enctype="multipart/form-data" action="tryadd.php">
 					<label>House Name</label>
 					<input type="text" name="name" id="name" class="form-control"><br>
 					<label>House Price</label>
@@ -224,7 +249,6 @@ mysqli_select_db($link,"myhostel");
 		});
 	</script>
 
-		<td><h3>View Accommodations</h3></td>
 
 </tr>
 
@@ -239,25 +263,3 @@ mysqli_select_db($link,"myhostel");
 </html>
 
 
-<?php 
-
-if(isset($_POST["submit1"]))
-{
-	$v1=rand(1111,9999);
-	$v2=rand(1111,9999);
-    $v3=$v1.$v2;
-    $v3=md5($v3);
-	$fnm=$_FILES["himage"]["name"];
-	$dst="./house_images/".$v3.$fnm;
-	$dst1="./house_images/".$v3.$fnm;
-
-	move_uploaded_file($_FILES["himage"]["tmp_name"],$dst);
-
-	mysqli_query($link,"insert into products values('','$_POST[hname]','$_POST[hprice]','$_POST[hrooms]','$dst1','$_POST[hcategory]','$_POST[hdescription]','$_POST[locate]')");
-
-	echo '<script type="text/javascript">
-	window.onload = function(){alert("New Accommodation Has Been Successffuly Added!");}
-	</script>';
-}
-
-?>
