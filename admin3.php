@@ -73,7 +73,6 @@
 		<li><a href="contacts.php">Contact us</a></li>
 		<li><a>Find Help</a>
  <ul>
-        		<li><a>How To Use</a></li>
         		<li><a>Cancel Booking</a></li>
         		<li><a>Manage Account</a></li>
 
@@ -83,8 +82,6 @@
        		 <ul>
         		<li><a>Our Team</a></li>
         		<li><a href="displaytoadmin.php">Accommodation Gallery</a></li>
-        		<li><a>Mission &amp; Vision</a></li>
-        		<li><a>Book Accommodation</a></li>
        		 </ul>
 		</li>
 		<li><a>Select Homepage</a>
