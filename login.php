@@ -10,21 +10,7 @@ if(isset($_POST['login_btn']))
 	{
 		$error= "Username or Password is missing";
 	}
-	else if(!empty($_POST['username']) && !empty($_POST['password']))
-	{ 
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-
-
-		$query = "SELECT username, password from users where username='admin' AND password='admin' LIMIT 1";
-
-		mysqli_query($conn,$query);
-
-		$_SESSION['message'] = "You are successfully logged in";
-		$_SESSION['username'] = $username;
-		header("location: admin3.php");// take me to home page
-
-	}
+	
 	else if(!empty($_POST['username']) && !empty($_POST['password']))
 	{
 		$username = $_POST['username'];
@@ -40,6 +26,21 @@ if(isset($_POST['login_btn']))
 		header("location: homepage1.php");// take me to home page
 
 	}
+	/*if(!empty($_POST['username']) && !empty($_POST['password']))
+	{ 
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+
+
+		$query = "SELECT username, password from users where username='admin' AND password='admin' LIMIT 1";
+
+		mysqli_query($conn,$query);
+
+		$_SESSION['message'] = "You are successfully logged in";
+		$_SESSION['username'] = $username;
+		header("location: admin3.php");// take me to home page
+
+	}*/
 	else 
 	{
 		//fail to create user

@@ -1,5 +1,6 @@
 <?php 
 
+session_start();
 $link=mysqli_connect("localhost","root","");
 mysqli_select_db($link,"myhostel");
 
@@ -27,7 +28,6 @@ mysqli_select_db($link,"myhostel");
 
 		<li><a>Find Help</a>
  <ul>
-        		<li><a>Payment modes</a></li>
         		<li><a>How To Use</a></li>
         		<li><a>Cancel Booking</a></li>
         		<li><a>Manage Account</a></li>

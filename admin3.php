@@ -73,7 +73,6 @@
 		<li><a href="contacts.php">Contact us</a></li>
 		<li><a>Find Help</a>
  <ul>
-        		<li><a>Payment modes</a></li>
         		<li><a>How To Use</a></li>
         		<li><a>Cancel Booking</a></li>
         		<li><a>Manage Account</a></li>
