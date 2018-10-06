@@ -64,7 +64,6 @@ body
 			float: right;
 			width: 200px;
 			height: 40px;
-			background-color: black;
 			opacity: .8;
 			line-height: 40px;
 			text-align: center;
@@ -75,7 +74,7 @@ body
 		ul li a
 		{
 			text-decoration: none;
-			color: white;
+			color: red;
 			display: block;
 		}
 		ul li a:hover
@@ -97,31 +96,11 @@ body
 			<div class="nav">
 	<ul>
 
-		<li><a>Contact us</a></li>
-		<li><a>My Account</a>
-			 <ul>
-        		<li><a href="login.php">Log In</a></li>
-        		<li><a href="createAcc.php">Create An Account</a></li>
-       		 </ul>
-		</li>
-		<li><a>Find Help</a>
- <ul>
-        		<li><a>Payment modes</a></li>
-        		<li><a>How To Use</a></li>
-        		<li><a>Cancel Booking</a></li>
-        		<li><a>Manage Account</a></li>
+			<ul>
 
-       		 </ul>
-		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a>Accommodation Gallery</a></li>
-        		<li><a>Mission &amp; Vision</a></li>
-        		<li><a>Book Accommodation</a></li>
-       		 </ul>
-		</li>
-		<li><a>Home</a></li>
+		<li><a a href="createAcc.php">Sign Up</a></li>
+		<li><a href="login.php">Login</a></li>
+		
 	</ul>
 
 
