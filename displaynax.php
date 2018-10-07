@@ -9,6 +9,8 @@ mysqli_select_db($link,"myhostel");
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<?php include('links.php'); ?>
+
 	<title></title>
 	<link rel="stylesheet" href="styles1.css">
 </head>
@@ -30,7 +32,7 @@ mysqli_select_db($link,"myhostel");
 		<li><a>Services</a>
        		 <ul>
         		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Accommodation Gallery</a></li>
+        		<li><a href="display.php">Gallery</a></li>
        		 </ul>
 		</li>
 		<li><a href="homepage1.php">Home</a></li>

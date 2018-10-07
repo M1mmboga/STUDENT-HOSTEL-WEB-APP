@@ -1,72 +1,17 @@
 <?php 
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
+	<?php include('links.php'); ?>
+	<script src="js/main.js" type="text/javascript" charset="utf-8" async defer></script>
+	<title>Home</title>
+	<link rel="stylesheet" href="css/styles1.css">
 
-	<style>
-		body
-		{
-			font-family: Arial;
-			color: white;
-			width: 100%;
-		}
-		ul
-		{
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-		ul li
-		{
-			float: right;
-			width: 200px;
-			height: 40px;
-			background-color: black;
-			opacity: .8;
-			line-height: 40px;
-			text-align: center;
-			font-size: 18px;
-			margin-right: 8px;
-			padding-left: 16px;
-		}
-		ul li a
-		{
-			text-decoration: none;
-			color: white;
-			display: block;
-		}
-		ul li a:hover
-		{
-			background-color: green;
-		}
-		ul li:hover ul li
-		{
-			display: block;
-		}
-		ul li ul li
-		{
-			display: none;
-		}
 
-		footer
-{
- bottom: 0px;
- background-color: teal;
- text-align: center;
- width: 100%;
- left: 0;
- color: white;
- height: 100px;
- padding-top: 10px;
- }
-	</style>
 	<script>
 		var i=0;
 		var images=[];
@@ -96,30 +41,8 @@ session_start();
 	</script>
 </head>
 <body>
-	<div class="nav">
-	<ul>
-
-		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="contacts.php">Contact us</a></li>
-		<li><a>Find Help</a>
- <ul>
-        		<li><a>Cancel Booking</a></li>
-        		<li><a>Manage Account</a></li>
-
-       		 </ul>
-		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Accommodation Gallery</a></li>
-       		 </ul>
-		</li>
-		<li><a href="#">Home</a></li>
-	</ul>
-
-
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
-</div>
+	
+	<?php include("nav-bar.php");?>
 
 <!-- Slideshow images-->
 <img name="slide" width="90%" height="400px" style="padding-left: 70px;">
@@ -130,7 +53,12 @@ session_start();
 	<h3 style="font-size: 35px; text-align: center; color: black; font-family: serif;"><i>Why book with Accommodation?</i><hr style="width: 500px;">
 </h3>
 
-	
+<!-- search bar -->
+<?php include('search-bar.php');?>
+
+
+
+<!-- images to explain why us-->	
 <img src="security.png" alt="Security" style="border-radius: 50%; padding-left: 50px;" height="300px" width="400px">
 <img src="affordability.png" alt="Affordability" style="border-radius: 50%;" height="300px" width="400px">
 <img src="legitimacy.png" alt="Legitimacy" style="border-radius: 50%;" height="300px" width="400px">

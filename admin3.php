@@ -81,7 +81,7 @@
 		<li><a>Services</a>
        		 <ul>
         		<li><a>Our Team</a></li>
-        		<li><a href="displaytoadmin.php">Accommodation Gallery</a></li>
+        		<li><a href="display1.php">Accommodation Gallery</a></li>
        		 </ul>
 		</li>
 		<li><a>Select Homepage</a>
@@ -102,39 +102,17 @@
 <tr>
 <td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px; padding-left: 110px;"></a></td>
 <td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
-<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
-<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
+
 </tr>
 
 <tr>
 <td style="padding-left: 110px;"><input type="button" style="background-color: white; border-color: none; border-style: none; font-size: 20px; font-weight: bold;" value="View All Accommodations" onclick="opengallery()"></td>
 <td><input type="button" style="background-color: white; border-color: none; border-style: none; font-size: 20px; font-weight: bold;" value="Add Accommodation" onclick="openpopup()"></td>
-<td>Update Accommodation</td>
-<td>Delete Accommodation</td>
-</tr>
-<tr></tr>
-<tr></tr>
-<tr></tr>
-<tr></tr>
-<tr></tr>
-<tr></tr>
-<tr></tr>
-<tr></tr>
-<tr></tr>
-<tr></tr>
-<tr>
-	<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px; padding-left: 110px;"></td>
-	<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
-	<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
-	<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
+
 </tr>
 
-<tr>
-<td style="padding-left: 110px;">View All Users</td>
-<td>X</td>
-<td>Confirm or Cancel Booking</td>
-<td>View Feedback</td>
-</tr>
+
+
 </table>
 
 
@@ -149,7 +127,7 @@
 
 	function opengallery()
 	{
-		mywindow2= window.open('display.php','_self');
+		mywindow2= window.open('display1.php','_self');
 	}
 </script>
 </body>

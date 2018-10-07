@@ -9,6 +9,8 @@ mysqli_select_db($link,"myhostel");
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<?php include('links.php'); ?>
+
 	<title></title>
 	<link rel="stylesheet" href="styles1.css">
 </head>
@@ -30,7 +32,7 @@ mysqli_select_db($link,"myhostel");
 		<li><a>Services</a>
        		 <ul>
         		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Accommodation Gallery</a></li>
+        		<li><a href="display.php">Gallery</a></li>
        		 </ul>
 		</li>
 		<li><a href="homepage1.php">Home</a></li>
@@ -42,7 +44,7 @@ mysqli_select_db($link,"myhostel");
 
 
 <?php 
-$res=mysqli_query($link,"select * from products where location='nairobi' order by id DESC");
+$res=mysqli_query($link,"select image,house_name,house_price from products where location='nairobi' order by id DESC");
 while($row=mysqli_fetch_array($res))
 {
 
@@ -51,15 +53,75 @@ while($row=mysqli_fetch_array($res))
 
 <!--php to display to user side -->
 <div class="displaytheimages">
+	<table class="table">
+		<tr>
+			<td>
   <img src="../myhostel/<?php echo $row["image"]; ?>" alt="" height="250px" width="500px"/>
-
-  <h2 style="color:black;">Ksh <?php echo $row["house_price"]; ?></h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewhouses">Click to View Accommodation</button></td>
+</tr>
+<tr>
+	<td>
   <p style="color:black;"><?php echo $row["house_name"]; ?></p>
+
+
+  <h2 style="color:black;">Ksh <?php echo $row["house_price"]; ?></h2></td>
+</tr>
+  </table>
+
+</div>
+
+
+<?php 
+}
+
+?>
+
+
+<?php 
+
+
+
+$res=mysqli_query($link,"select * from products where house_name='?' ");
+while($row=mysqli_fetch_array($res))
+{
+
+?>
+<!-- pop up to view more about the accommodation-->
+
+
+	<div id="viewhouses" class="modal fade" role="dialog" >
+		
+		<div class="modal-dialog modal-dialog-centered">
+			
+			<div class="modal-content">
+				<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" style="color: black;"></h4>
+				</div>
+				<div class="modal-body">
+				<table class="table">
+					
+<tr>
+	<td>
+		  <img src="../myhostel/<?php echo $row["image"]; ?>" alt="" height="250px" width="500px"/>
+  <p style="color:black;"><?php echo $row["house_name"]; ?></p>
+   <h2 style="color:black;">Ksh <?php echo $row["house_price"]; ?></h2>
   <p style="color:black;"><?php echo $row["category"]; ?></p>
   <p style="color:black;"><?php echo $row["house_description"]; ?></p>
   <p style="color:black;">Located in <?php echo $row["location"]; ?></p>
-</div>
+	</td>
+</tr>
 
+				</table>
+			</div>
+			<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Book Now</button>
+
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php 
 }

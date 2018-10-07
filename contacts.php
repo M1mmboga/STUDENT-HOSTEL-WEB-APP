@@ -7,6 +7,8 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<?php include('links.php'); ?>
+
 	<title>Contact us</title>
 	<link rel="stylesheet" href="destinationcss.css">
 	<style>

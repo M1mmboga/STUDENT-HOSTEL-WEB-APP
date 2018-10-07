@@ -10,6 +10,8 @@ mysqli_select_db($link,"myhostel");
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<?php include('links.php'); ?>
+
 	<title></title>
 	<link rel="stylesheet" href="styles1.css">
 </head>
@@ -28,7 +30,6 @@ mysqli_select_db($link,"myhostel");
 
 		<li><a>Find Help</a>
  <ul>
-        		<li><a>How To Use</a></li>
         		<li><a>Cancel Booking</a></li>
         		<li><a>Manage Account</a></li>
 
@@ -37,9 +38,8 @@ mysqli_select_db($link,"myhostel");
 		<li><a>Services</a>
        		 <ul>
         		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Accommodation Gallery</a></li>
-        		<li><a>Mission &amp; Vision</a></li>
-        		<li><a>Book Accommodation</a></li>
+        		<li><a href="display1.php">Accommodation Gallery</a></li>
+        
        		 </ul>
 		</li>
 		<li><a href="homepage1.php">Home</a></li>
@@ -49,9 +49,8 @@ mysqli_select_db($link,"myhostel");
 </div>
 
 
-
 <?php 
-$res=mysqli_query($link,"select * from products where location='msa'");
+$res=mysqli_query($link,"select * from products order by id DESC");
 while($row=mysqli_fetch_array($res))
 {
 
@@ -66,7 +65,7 @@ while($row=mysqli_fetch_array($res))
   <p style="color:black;"><?php echo $row["house_name"]; ?></p>
   <p style="color:black;"><?php echo $row["category"]; ?></p>
   <p style="color:black;"><?php echo $row["house_description"]; ?></p>
-  <p style="color:black;"><?php echo $row["location"]; ?></p>
+  <p style="color:black;">Located in <?php echo $row["location"]; ?></p>
 </div>
 
 
