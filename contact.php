@@ -11,9 +11,9 @@ if(isset($_POST["firstname"]) && isset($_POST["lastname"])
 	$query = $conn->prepare("INSERT INTO contact (fname,lname,email,county,inquiry) values (?,?,?,?,?)");
 	$query->bind_param("sssss",$_POST["firstname"], $_POST["lastname"],$_POST["eemail"],$_POST["ccounty"],$_POST["iinquiry"]);
 	if($query->execute())
-		echo "success";
+		header("location: thankscontact.php");
 	else
-		echo "not success";
+		header("location: contacts.php");
 }
 
 

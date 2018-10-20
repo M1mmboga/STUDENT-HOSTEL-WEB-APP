@@ -1,5 +1,6 @@
 <?php 
-
+include('php/connect.php');
+$error='';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -78,7 +79,7 @@ body
 
 <h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation </i></h1>
 </div>
-
+<h3 style="color: red;"><?php echo $error;?></h3>
 <!-- login pop up form-->
 <div class="container">
 		<div class="table-responsive">
@@ -100,7 +101,7 @@ body
 
 					<span style="color: red;">Login If You Already Have An Account</span><br><br>
 
-					<label>Username</label>
+					<label>Username or Email</label>
 					<input type="text" autocomplete="off" name="username" id="name" class="form-control" required ><br>
 					<label>Password</label>
 					<input type="password" autocomplete="off" name="password" id="pword" class="form-control" required value=""><br>
@@ -140,10 +141,10 @@ body
 					<span style="color: red;">Your Records Will be Entered Once You Click Submit</span><br><br>
 
 					<label>Full Name</label>
-					<input type="text" name="name" id="name" class="form-control" required><br>
+					<input type="text" name="fullname" id="name" class="form-control" required><br>
 					
 					<label>Gender</label><br>
-					<select name="gender" >						
+					<select name="gender">						
 						<option value="male">Male</option>
 						<option value="female">Female</option>
 					</select><br><br>
@@ -161,7 +162,11 @@ body
 					<input type="password" name="password1" id="password1" class="form-control" required><br>
 					<label>Confirm Password</label>
 					<input type="password" name="password2" id="password2" class="form-control" required><br>
-
+					<label>User Type</label><br>
+					<select name="type" >						
+						<option value="student">Student</option>
+						<option value="other">Other</option>
+					</select><br><br>
 					<input type="submit" name="register" id="register" value="Submit">
 				</form>
 			</div>

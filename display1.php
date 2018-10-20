@@ -20,59 +20,117 @@ mysqli_select_db($link,"myhostel");
 	<div class="nav">
 	<ul>
 
-		<li><a>Contact us</a></li>
-		<li><a>My Account</a>
-		<ul>
-			<li>Log In</li>
-			<li>Create An Account</li>
-		</ul>
-		</li>
-
-		<li><a>Find Help</a>
- <ul>
-        		<li><a>Cancel Booking</a></li>
-        		<li><a>Manage Account</a></li>
-
-       		 </ul>
-		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a href="display1.php">Accommodation Gallery</a></li>
-        
-       		 </ul>
-		</li>
-		<li><a href="homepage1.php">Home</a></li>
+		<li><a href="logout.php">Log Out</a></li>
+		<li><a href ="#">Manage Account</a></li>
+		<li><a href="homepage2.php">User Home Page</a></li>
+		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
 
 <h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
 </div>
 
 
-<?php 
+<p class="lead" style="color:black; font-size: 200%; text-align: center;">All accomodations listed</p>;
+
+<!-- just display all available places-->
+<div class="products">
+<table class="table">
+<?php
+//Echo all table data 
 $res=mysqli_query($link,"select * from products order by id DESC");
 while($row=mysqli_fetch_array($res))
 {
-
 ?>
+<!--php to display to house side -->
+	<tr>
+		<td><p style="color:black; "><?php echo $row["house_name"]?></p></td>
+		<td><input type="button" name="view" value="View" id="<?php echo $row["id"]?>" class="btn btn-info btn-xs view_data"/></td>
+	</tr>
+<?php 
+}
+?>
+</table>
+</div>
 
+<div id="dataModal" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" style="color: black; width:100%;">
+			<div class="modal-header">
+				<h2 style="text-align: left;">House Details</h2>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div id="products_modal">		
 
-<!--php to display to user side -->
-<div class="displaytheimages">
-  <img src="../myhostel/<?php echo $row["image"]; ?>" alt="" height="250px" width="500px"/>
-
-  <h2 style="color:black;">Ksh <?php echo $row["house_price"]; ?></h2>
-  <p style="color:black;"><?php echo $row["house_name"]; ?></p>
-  <p style="color:black;"><?php echo $row["category"]; ?></p>
-  <p style="color:black;"><?php echo $row["house_description"]; ?></p>
-  <p style="color:black;">Located in <?php echo $row["location"]; ?></p>
+			</div>
+	</div>
 </div>
 
 
-<?php 
-}
 
-?>
+
+<script>
+	$(document).ready(function()
+	{
+		$('.view_data').click(function()
+		{
+			var house_id = $(this).attr("id");
+			$.ajax({
+				url:"select.php",
+				method:"post",
+				data:{house_id:house_id},
+				success:function(data)
+				{
+					$('#products_modal').html(data);
+					$('#dataModal').modal("show");
+				}
+			});
+
+		});	
+
+
+		$(document).on('click', '.delete_data', function()
+		{
+			var house_id = $(this).attr("id");
+			var house_name = $("#house_name").val();
+
+			var deleteConfirm = confirm("Delete "+house_name+" ?");
+
+			if(deleteConfirm == true){
+				 deleteHouse(house_id);
+			}
+		});
+
+
+
+
+			function showProducts(){
+				$.ajax({
+					url:"php/get-products.php",
+					method:"post",
+					data:{house_id:house_id},
+					success:function(data)
+					{
+						alert(data);
+					}
+				});
+
+			}	
+
+
+			function deleteHouse(house_id){
+				$.ajax({
+					url:"deletehouse.php",
+					method:"post",
+					data:{house_id:house_id},
+					success:function(data)
+					{
+						alert(data);
+						location.reload();
+					}
+				});
+			}
+	});
+</script>
 <!-- website footer-->
 	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>

@@ -9,14 +9,15 @@ session_start();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<?php include('links.php'); ?>
 
-	<title></title>
-	<link rel="stylesheet" href="">
+
+
+	<title>Admin Homepage</title>
+	<link rel="stylesheet" href="styles1.css">
 
 	<style>
 		body
 		{
 			font-family: Arial;
-			color: white;
 			width: 100%;
 		}
 		ul
@@ -102,27 +103,9 @@ session_start();
 	<ul>
 
 		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="contacts.php">Contact us</a></li>
-		<li><a>Find Help</a>
- <ul>
-        		<li><a>Cancel Booking</a></li>
-        		<li><a>Manage Account</a></li>
-
-       		 </ul>
-		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a href="displaytoadmin.php">Accommodation Gallery</a></li>
-       		 </ul>
-		</li>
-		<li><a>Select Homepage</a>
-		<ul>
-			<li><a href="admin3.php">Admin Homepage</a></li>
-			<li><a href="homepage2.php">User Homepage</a></li>
-
-		</ul>
-	</li>
+		<li><a href="#">Manage Account</a></li>
+		<li><a href="homepage2.php">User Home Page</a></li>
+		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
 
 
@@ -138,6 +121,8 @@ session_start();
 	<h3 style="font-size: 35px; text-align: center; color: black; font-family: serif;"><i>Why book with Accommodation?</i><hr style="width: 500px;">
 </h3>
 
+		<?php include('search-bar.php'); ?>
+
 	
 <img src="security.png" alt="Security" style="border-radius: 50%; padding-left: 50px;" height="300px" width="400px">
 <img src="affordability.png" alt="Affordability" style="border-radius: 50%;" height="300px" width="400px">
@@ -151,7 +136,7 @@ session_start();
 	<p style="text-align: center; font-size: 30px; color: black;font-family: papyrus;">Student reviews</p>
 	<hr style="width: 120px;">
 		
-	</style>>
+	</style>
 	<table style="text-align: center; color: black; font-size: 28px; ">
 		<tr style="font-weight: bold; font-family: papyrus; ">
 				<td>Jane Njeri</td>

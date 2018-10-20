@@ -1,6 +1,6 @@
 <?php 
 
-
+session_start();
 
 if(isset($_POST["submit1"]))
 {
@@ -38,8 +38,9 @@ if(	move_uploaded_file($_FILES["himage"]["tmp_name"],$target)
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<?php include('links.php');?>
 	<title>Admin Panel</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="styles1.css">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -52,7 +53,6 @@ if(	move_uploaded_file($_FILES["himage"]["tmp_name"],$target)
 		body
 		{
 			font-family: Arial;
-			color: white;
 			width: 100%;
 		}
 		ul
@@ -111,30 +111,15 @@ if(	move_uploaded_file($_FILES["himage"]["tmp_name"],$target)
 	<div class="nav">
 	<ul>
 
-		<li><a>Log Out</a></li>
-		<li><a href="contacts.html">Contact us</a></li>
-		<li><a>Find Help</a>
- <ul>
-        		<li><a>Payment modes</a></li>
-        		<li><a>How To Use</a></li>
-        		<li><a>Cancel Booking</a></li>
-        		<li><a>Manage Account</a></li>
-
-       		 </ul>
-		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Accommodation Gallery</a></li>
-        		<li><a>Mission &amp; Vision</a></li>
-        		<li><a>Book Accommodation</a></li>
-       		 </ul>
-		</li>
-		<li><a href="homepage1.php">Home</a></li>
+		<li><a href="logout.php">Log Out</a></li>
+		<li><a href="#">Manage Account</a></li>
+		<li><a href="homepage2.php">User Home Page</a></li>
+		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
 
 
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation</i></h1>
+
+<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']?></i></h1>
 </div>
 
 
@@ -150,15 +135,16 @@ if(	move_uploaded_file($_FILES["himage"]["tmp_name"],$target)
 			<button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add Accommodation</button>
 		</div>
 	</div>
-
+</td>
 	<div id="add_data_Modal" class="modal fade" >
 		
 		<div class="modal-dialog">
 			
 			<div class="modal-content">
 				<div class="modal-header">
+											<h4 class="modal-title">Add Accommodation</h4>
+
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Add Accommodation</h4>
 				</div>
 				<div class="modal-body">
 				<form method="post" id="insert_form" enctype="multipart/form-data" action="tryadd.php">

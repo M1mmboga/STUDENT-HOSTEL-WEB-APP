@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="color:black;">
 	<div class="row jumbotron justify-content-center">
 		<div class="col-12 section-title">
 			<p class="lead">Find the place just for you</p>

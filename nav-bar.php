@@ -7,19 +7,10 @@ if(session_status() == PHP_SESSION_NONE){
   <ul>
 		<?php toggleNav(); ?>
 		<li><a href="contacts.php">Contact us</a></li>
-		<li><a href="#">Find Help</a>
-		 	<ul>
-		        <li><a>Cancel Booking</a></li>
-		        <li><a>Manage Account</a></li>
-		     </ul>
-		</li>
-		<li><a href="#">Services</a>
-       		 <ul>
-        		<li><a href="#">Our Team</a></li>
-        		<li><a href="display.php">Gallery</a></li>
-       		 </ul>
-		</li>
-		<li><a href="#">Home</a></li>
+				        <li><a href="myaccount.php">Manage Account</a></li>
+
+		<li><a href="display.php">View Accommodations</a></li>
+		<li><a href="homepage1.php">Home</a></li>
 	</ul>
 
 <h1 style="font-size: 25px; color: grey; font-family: serif;">

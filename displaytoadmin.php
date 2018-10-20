@@ -9,6 +9,8 @@ mysqli_select_db($link,"myhostel");
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<?php include('links.php'); ?>
+
 	<title></title>
 	<link rel="stylesheet" href="styles1.css">
 </head>
@@ -16,45 +18,42 @@ mysqli_select_db($link,"myhostel");
 	
 	<div class="nav">
 <ul>
-
-		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="contacts.php">Contact us</a></li>
-		<li><a>Find Help</a>
- <ul>
-        		<li><a>Cancel Booking</a></li>
-        		<li><a>Manage Account</a></li>
-
-       		 </ul>
-		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a href="displaytoadmin.php">Accommodation Gallery</a></li>
-       		 </ul>
-		</li>
-		<li><a>Select Homepage</a>
-		<ul>
-			<li><a href="admin3.php">Admin Homepage</a></li>
-			<li><a href="homepage2.php">User Homepage</a></li>
-
-		</ul>
-	</li>
+<li><a href="logout.php">Log Out</a></li>
+		<li><a>Manage Account</a></li>
+		<li><a href="homepage2.php">User Home Page</a></li>
+		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
 
 <h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
 </div>
 
-<div class="thetowns">
-<p><a href="displaynrb.php" style="text-decoration: none; text-align:  center; ">Nairobi</a></p>
-
-<p><a href="displaynax.php" style="text-decoration: none; text-align:  center;">Nakuru</a></p>
 
 
-<p><a href="displaymsa.php" style="text-decoration: none; text-align:  center;">Mombasa</a></p>
+
+<table border="0" style="color: black; float:center;">
+<tr>
+<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></a></td>
+<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
+<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
+<td><img src="admin1.jpg" width="200px;" height="200px;" style="padding-right: 90px;"></td>
+
+</tr>
+
+<tr>
+<td><a href="displaynrb.php" style="text-decoration: none; text-align: center; ">Nairobi</a></td>
+
+<td><a href="displaynax.php" style="text-decoration: none; text-align: center;">Nakuru</a></td>
 
 
-<p><a href="displaynyeri.php" style="text-decoration: none; text-align:  center;">Nyeri</a></p>
-</div>
+<td><a href="displaymsa.php" style="text-decoration: none; text-align: center;">Mombasa</a></td>
+
+
+<td><a href="displaynyeri.php" style="text-decoration: none; text-align:center;">Nyeri</a></td>
+</tr>
+
+
+
+</table>
 
 <!-- website footer-->
 	<footer style="position: fixed;">

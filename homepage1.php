@@ -71,7 +71,7 @@ session_start();
 	<p style="text-align: center; font-size: 30px; color: black;font-family: papyrus;">Student reviews</p>
 	<hr style="width: 120px;">
 		
-	</style>>
+	</style>
 	<table style="text-align: center; color: black; font-size: 28px; ">
 		<tr style="font-weight: bold; font-family: papyrus; ">
 				<td>Jane Njeri</td>

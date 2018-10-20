@@ -14,8 +14,7 @@ session_start();
 	<style>
 body
 		{
-			font-family: Arial;
-			color: white;
+			font-family: montserrat;
 			width: 100%;
 		}
 		ul
@@ -75,23 +74,11 @@ body
 	<ul>
 
 		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="contacts.html">Contact us</a></li>
-		<li><a>Find Help</a>
- <ul>
-        		<li><a>How To Use</a></li>
-        		<li><a>Cancel Booking</a></li>
-        		<li><a>Manage Account</a></li>
-
-       		 </ul>
-		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Accommodation Gallery</a></li>
-        		<li><a>Mission &amp; Vision</a></li>
-        		<li><a>Book Accommodation</a></li>
-       		 </ul>
-		</li>
+		<li><a href="#">Contact us</a></li>
+    		<li><a href="#">Manage Account</a></li>
+   		
+		<li><a href="display.php">View Accommodations</a></li>
+       		
 		<li><a href="homepage1.php">Home</a></li>
 	</ul>
 
@@ -99,10 +86,10 @@ body
 <h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
 </div>
 
-<h1>Contact Us</h1><hr>
 
-<div class="mycontactform" style="color:black;">
+<div class="mycontactform" style="color:black; text-align: center; ">
 	<form action="contact.php" method="POST">
+		<p style="font-family: montserrat; font-weight: bold; font-size: 30px; margin-top: 10px; "><i>Kindly Submit Any Inquiry Information Below</i></p><br>
 		<label for="fname">First Name</label>
 		<input type="text"  name="firstname" placeholder="Enter your first name here..." required><br><br>
 
@@ -164,10 +151,10 @@ body
 			
 		</select><br><br>
 
-		<label for="inquiry">Inquiry</label>
+		<label for="inquiry">Inquiry</label><br>
 		<textarea  name="iinquiry" placeholder="Write your inquiry here..." style="height:100px" required></textarea><br><br>
 
-		<input type="submit" value="submit">
+		<input type="submit" value="Submit" name="submit1">
 	</form>
 </div>
 

@@ -22,20 +22,15 @@ mysqli_select_db($link,"myhostel");
 		<li><a href="logout.php">Log Out</a></li>
 		<li><a href="contacts.php">Contact us</a></li>
 
-		<li><a>Find Help</a>
+		<li><a href="#">Find Help</a>
  <ul>
-        		<li><a>Cancel Booking</a></li>
-        		<li><a>Manage Account</a></li>
+        		<li><a href="#">Cancel Booking</a></li>
+        		<li><a href="#">Manage Account</a></li>
 
        		 </ul>
 		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Gallery</a></li>
-        	
-       		 </ul>
-		</li>
+		<li><a href="display.php">View Accommodations</a></li>
+
 		<li><a href="homepage1.php">Home</a></li>
 	</ul>
 
@@ -45,6 +40,7 @@ mysqli_select_db($link,"myhostel");
 
 <!-- just display all available places-->
 <div class="thetowns">
+	<table class="table">
 
 <?php 
 $res=mysqli_query($link,"select * from products order by id DESC");
@@ -55,50 +51,38 @@ while($row=mysqli_fetch_array($res))
 
 
 <!--php to display to house side -->
-	<table class="table">
-		<tr>
-			<td>
+		<tr class="d-flex">
+		<td>
+  				<img src='<?php echo $row["image"]; ?>' alt="" height="250px" width="500px"/>
 
-  <img src="../myhostel/<?php echo $row["image"]; ?>" alt="" height="250px" width="500px"/></td>
+  <?php echo $row["house_name"]; ?>  Ksh <?php echo $row["house_price"]; ?>  
 
-<td><input type="button" name="view" value="view" id="<?php echo $row["id"]?>" class="btn btn-info btn-xs view_data"/>Click to View Accommodation</td>
+
+				<input type="button" name="view" value="Click to view accommodation" id="<?php echo $row["id"]?>" class="btn btn-info btn-xs view_data"/></td>
+
 </tr>
-<tr>
-	<td>
-  <p style="color:black;"><?php echo $row["house_name"]; ?></p>
-
-
-  <h2 style="color:black;">Ksh <?php echo $row["house_price"]; ?></h2></td>
-</tr>
-  </table>
 
 
 <?php 
 }
 
 ?>
+  </table>
 
 <div id="dataModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content" style="color: black;">
 			<div class="modal-header">
-								<h2 style="text-align: left;">House Details</h2>
-
+				<h2 style="text-align: left;">House Details</h2>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			<div class="modal-body" id="house_detail">
-
+			<div id="house_detail">
+				
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default">Book Now</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-
 		</div>
 	</div>
 </div>
-
-
+</div>
 
 
 <script>
@@ -108,19 +92,22 @@ while($row=mysqli_fetch_array($res))
 		{
 			var house_id = $(this).attr("id");
 			$.ajax({
-				url:"select.php",
+				url:"select2.php",
 				method:"post",
 				data:{house_id:house_id},
 				success:function(data)
 				{
 					$('#house_detail').html(data);
-						$('#dataModal').modal("show");
+					$('#dataModal').modal("show");
 
 				}
 			});
 
 
 		});	
+
+		
+
 	});
 </script>
 

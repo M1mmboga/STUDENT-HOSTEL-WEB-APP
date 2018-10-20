@@ -12,3 +12,6 @@
 
 <!--css link to new nav bar -->
 <link rel="stylesheet" href="css/styles1.css">
+
+<!-- the images -->
+

@@ -29,13 +29,8 @@ mysqli_select_db($link,"myhostel");
 
        		 </ul>
 		</li>
-		<li><a>Services</a>
-       		 <ul>
-        		<li><a>Our Team</a></li>
-        		<li><a href="display.php">Gallery</a></li>
-        		
-       		 </ul>
-		</li>
+		<li><a href="display.php">View Accommodations</a></li>
+
 		<li><a href="homepage1.php">Home</a></li>
 	</ul>
 
