@@ -119,6 +119,8 @@ while($row=mysqli_fetch_array($res))
 <!-- website footer-->
 	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
+				<p>Contact us : myhostelaccommodation@gmail.com</p>
+
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
 	</footer>
 </body>

@@ -8,6 +8,7 @@ if(isset($_POST["feedback_id"]))
 	$query="SELECT * FROM contact WHERE feedbackid='".$_POST["feedback_id"]."'";
 	$result=mysqli_query($conn,$query);
 	$output .= '
+	<form action="sendmail.php" method="post">
 	<div class="table-responsive">
 		<table class="table table-bordered"';
 
@@ -20,7 +21,8 @@ if(isset($_POST["feedback_id"]))
 			</tr>
 			<tr>
 				<td><label>Email</label></td>
-				<td>'.$row["email"].'</td>
+				<td><input type="email" name="email" value="'.$row["email"].'" style="width:250px;" required readonly/></td>
+
 			</tr>
 			
 			<tr>
@@ -31,11 +33,20 @@ if(isset($_POST["feedback_id"]))
 				<td><label>Inquiry</label></td>
 				<td>'.$row["inquiry"].'</td>
 			</tr>
+
+			<tr>
+			<td>Response Message</td>
+			<td><textarea name="respond" cols="80" rows="10"></textarea></td>
+			</tr>
 			
+			<tr>
+			<input type="submit" value="Send Response" class="btn btn-primary" name="send">
+			</tr>
+
 			
 			';
 		}
-	$output .= "</table></div>";
+	$output .= "</table></div></form>";
 		echo $output;
 }
 

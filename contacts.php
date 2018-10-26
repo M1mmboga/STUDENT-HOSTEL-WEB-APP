@@ -152,7 +152,7 @@ body
 		</select><br><br>
 
 		<label for="inquiry">Inquiry</label><br>
-		<textarea  name="iinquiry" placeholder="Write your inquiry here..." style="height:100px" required></textarea><br><br>
+		<textarea rows="10" cols="80"  name="iinquiry" placeholder="Write your inquiry here..." style="height:100px" required></textarea><br><br>
 
 		<input type="submit" value="Submit" name="submit1">
 	</form>
@@ -161,6 +161,8 @@ body
 <!-- website footer-->
 	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
+				<p>Contact us : myhostelaccommodation@gmail.com</p>
+
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
 	</footer>
 </body>

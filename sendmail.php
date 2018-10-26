@@ -2,13 +2,13 @@
 
 session_start();
 
-if (isset($_POST['respond'])) {
+if (isset($_POST['send'])) {
 	
 
 
-	$message=$_POST['response'];
+	$message=$_POST['respond'];
 	$to=$_POST['email'];
-	$headers = "From: mmbogamiriam2@gmail.com";
+	$headers = "From: myhostelaccommodation@gmail.com";
 
 	mail($to, "My Hostel Feedback", $message, $headers);
 	
