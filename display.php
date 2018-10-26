@@ -22,13 +22,9 @@ mysqli_select_db($link,"myhostel");
 		<li><a href="logout.php">Log Out</a></li>
 		<li><a href="contacts.php">Contact us</a></li>
 
-		<li><a href="#">Find Help</a>
- <ul>
-        		<li><a href="#">Cancel Booking</a></li>
-        		<li><a href="#">Manage Account</a></li>
+	
+        		<li><a href="myaccount.php">Manage Account</a></li>
 
-       		 </ul>
-		</li>
 		<li><a href="display.php">View Accommodations</a></li>
 
 		<li><a href="homepage1.php">Home</a></li>

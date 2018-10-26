@@ -50,10 +50,13 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
             $cartItems = $cart->contents();
             $orderID;
 
+            $from = $_GET['from'];
+            $to = $_GET['to'];
+
             foreach($cartItems as $item){
-                $sql = "INSERT INTO `booking`(`user_id`, `house_id`, total_price) VALUES (?,?,?)";
+                $sql = "INSERT INTO `booking`(`user_id`, `house_id`, total_price, checkin, checkout) VALUES (?,?,?,?,?)";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("sss",$_SESSION['userid'], $item['id'], $item['subtotal']);
+                $stmt->bind_param("sssss",$_SESSION['userid'], $item['id'], $item['subtotal'],$from,$to);
                 $bool = $stmt->execute();
                 $orderID = $stmt->insert_id;
             }

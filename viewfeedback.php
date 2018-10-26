@@ -63,7 +63,7 @@ while($row=mysqli_fetch_array($res))
 ?>
 
 <div id="dataModal" class="modal fade">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content" style="color: black; width:100%;">
 			<div class="modal-header">
 								<h2 style="text-align: left;">User Feedback Details</h2>
@@ -74,7 +74,6 @@ while($row=mysqli_fetch_array($res))
 
 			</div>
 			<div class="modal-footer">
-			<button type="button" class="btn btn-primary" ">Respond</button>
 
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>

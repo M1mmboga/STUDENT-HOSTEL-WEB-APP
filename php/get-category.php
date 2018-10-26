@@ -2,7 +2,7 @@
 include('connect.php');
 
 
-$query = "SELECT DISTINCT category FROM `products`";
+$query = "SELECT DISTINCT location FROM `products` ";
 
 $stmt = $conn->prepare($query);
 $stmt->execute();
@@ -12,9 +12,10 @@ $data = "";
 
 while($row = $result->fetch_array()){
 
-	$category = $row['category'];
+	$location = $row['location'];
 
-	$data .='<option value="'.$category.'">'.$category.'</option>';
+	$data .='<option value="'.$location.'">'.$location.'</option>';
 }
 
 echo $data;
+

@@ -17,7 +17,7 @@ mysqli_select_db($link,"myhostel");
 </head>
 <body>
 	
-	<div class="nav">
+	<div class="">
 	<ul>
 
 		<li><a href="logout.php">Log Out</a></li>

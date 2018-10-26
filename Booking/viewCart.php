@@ -9,13 +9,16 @@ $cart = new Cart;
     <title>Bookings</title>
     <meta charset="utf-8">
     <?php include ('../links.php');?>
-
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <style>
-    ul
+   ul
         {
             margin: 0;
             padding: 0;
@@ -53,32 +56,17 @@ $cart = new Cart;
             display: none;
         }
 
-        h1 {
-            color: black;
-            font-family: Helvetica;
-        }
-
-        tr {
-            color: black;
-            font-family: Arial;
-            font-size: 20px;
-        }
-
-        th {
-            color: black;
-        }
-
-        .container {
-            padding: 5px;
-            min-width: 100%;
-            height:800px;
-
-            .topnav a:hover:before {
-                visibility: visible;
-                -webkit-transform:scaleX(1);
-                transform: scaleX(1);
-            }
-        }
+        footer
+{
+ bottom: 0px;
+ background-color: teal;
+ text-align: center;
+ width: 100%;
+ left: 0;
+ color: white;
+ height: 100px;
+ padding-top: 10px;
+ }
 
         input[type="number"] {
             width: 20%;
@@ -98,23 +86,30 @@ $cart = new Cart;
 </head>
 
 <body>
+
 <div class="nav">
-    <ul>
+  <ul>
+    <li><a href="../logout.php">Logout</a></li>
+        <li><a href="../contacts.php">Contact us</a></li>
+                        <li><a href="../myaccount.php">Manage Account</a></li>
 
-        <li><a href="logout.php">Log Out</a></li>
-        <li><a href="contacts.php">Contact us</a></li>
-
-                <li><a href="#">Cancel Booking</a></li>
-                <li><a href="#">Manage Account</a></li>
-
-             
-        <li><a href="display.php">View Accommodations</a></li>
-
-        <li><a href="homepage1.php">Home</a></li>
+        <li><a href="../display.php">View Accommodations</a></li>
+        <li><a href="../homepage1.php">Home</a></li>
     </ul>
 
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
-</div><div class="container">
+<h1 style="font-size: 25px; color: grey; font-family: serif;">
+    <i>Find Your Accommodation, 
+        <?php 
+            if(isset($_SESSION['username'])){
+                echo $_SESSION['username']; 
+            }else{
+                echo "easily today";
+            }
+        ?>      
+    </i>
+</h1>
+</div>
+<div class="container">
 <!-- Top links -->
 <!--End top links-->
 <br>
@@ -157,11 +152,78 @@ $cart = new Cart;
             <td colspan="2"></td>
             <?php if($cart->total_items() > 0){ ?>
             <td class="text-center"><strong>Total <?php echo 'Ksh'.$cart->total(); ?></strong></td>
-            <td><a href="checkout.php" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
+            <td><a href="#" class="btn btn-success btn-block" id='checkout-link'>Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
             <?php } ?>
         </tr>
     </tfoot>
+    <div class="col-md-4">
+        <label for="from">Check in date</label>
+    <input type="text" id="from" name="from" class="form-control" readonly required="">
+    </div>
+    <div class="col-md-4">
+    <label for="to">Check out date</label>
+    <input type="text" id="to" name="to" class="form-control" readonly required="">
+    </div>
     </table>
 </div>
+<script>
+    
+
+  $( function() {
+
+$('input[type=text]').attr('autocomplete','off');
+
+
+    var dateFormat = "yy-mm-dd",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          dateFormat: dateFormat
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+          setLink();
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        dateFormat: dateFormat
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+        setLink();
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+
+    function setLink(){
+        var from = $('#from').val();
+        var to = $('#to').val();
+
+        if(from !=="" && to !== ""){
+            $('#checkout-link').attr('href','checkout.php?from='+from+'&to='+to);
+        }
+
+        
+    }   
+
+  } );
+</script>
+
 </body>
+<!-- website footer-->
+    <footer style="position: fixed;">
+        <p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
+        <p><b>Copyright &copy; 2018. Accommodation</b> </p>
+    </footer>
 </html>

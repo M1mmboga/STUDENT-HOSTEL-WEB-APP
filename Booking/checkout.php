@@ -25,11 +25,12 @@ if($cart->total_items() <= 0){
 <head>
     <title>Check out</title>
     <meta charset="utf-8">
+    <?php include'../links.php'; ?>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
- ul
+  ul
         {
             margin: 0;
             padding: 0;
@@ -37,7 +38,7 @@ if($cart->total_items() <= 0){
         }
         ul li
         {
-            float: left;
+            float: right;
             width: 200px;
             height: 40px;
             background-color: black;
@@ -67,11 +68,17 @@ if($cart->total_items() <= 0){
             display: none;
         }
 
-
-        h1 {
-            color: black;
-            font-family: Helvetica;
-        }
+        footer
+{
+ bottom: 0px;
+ background-color: teal;
+ text-align: center;
+ width: 100%;
+ left: 0;
+ color: white;
+ height: 100px;
+ padding-top: 10px;
+ }
 
         tr {
             color: black;
@@ -108,22 +115,7 @@ if($cart->total_items() <= 0){
     </style>
 </head>
 <body>
-<div class="nav">
-    <ul>
-
-        <li><a href="logout.php">Log Out</a></li>
-        <li><a href="contacts.php">Contact us</a></li>
-
-                <li><a href="#">Cancel Booking</a></li>
-                <li><a href="#">Manage Account</a></li>
-
-             
-        <li><a href="display.php">View Accommodations</a></li>
-
-        <li><a href="homepage1.php">Home</a></li>
-    </ul>
-
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
+<?php include '../nav-bar.php'; ?>
 
 <div class="container">
 <br>
@@ -138,6 +130,8 @@ if($cart->total_items() <= 0){
             <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
+            <th>Check In</th>
+            <th>Check out</th>
         </tr>
     </thead>
     <tbody>
@@ -152,14 +146,16 @@ if($cart->total_items() <= 0){
             <td><?php echo 'Ksh'.$item["price"]; ?></td>
             <td><?php echo $item["qty"]; ?></td>
             <td><?php echo 'Ksh'.$item["subtotal"]; ?></td>
+            <td><?php echo $_GET["from"]; ?></td>
+            <td><?php echo $_GET["to"]; ?></td>
         </tr>
         <?php } }else{ ?>
-        <tr><td colspan="4"><p>No items in your cart</p></td>
+        <tr><td colspan="5"><p>No items in your cart</p></td>
         <?php } ?>
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3"></td>
+            <td colspan="5"></td>
             <?php if($cart->total_items() > 0){ ?>
             <td class="text-center"><strong>Total <?php echo 'Ksh'.$cart->total(); ?></strong></td>
             <?php } ?>
@@ -195,10 +191,8 @@ if($cart->total_items() <= 0){
 	
 	</form>
     <div class="footBtn">
-        <a href="student-booking-page.php" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-menu-left"></i> Continue Booking</a>
-        <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#checkoutModal">
-		<span class="glyphicon glyphicon-shopping-cart"></span>Enter Details>>
-		</button>
+        <a href="viewCart.php" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-menu-left"></i> Go Back</a>
+        
 <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -251,9 +245,16 @@ if($cart->total_items() <= 0){
     </div>
   </div>
 </div>
-<a href="cartAction.php?action=placeOrder" class="btn btn-success btn-lg orderBtn">Book Hostel(s)<i class="glyphicon glyphicon-menu-right"></i></a>
+
+<?= '<a href="cartAction.php?action=placeOrder&from='.$_GET['from'].'&to='.$_GET['to'].'" class="btn btn-success btn-lg orderBtn">Book Hostel(s)<i class="glyphicon glyphicon-menu-right"></i></a>';?>
         
     </div>
 </div>
+
+<!-- website footer-->
+    <footer style="position: fixed;">
+        <p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
+        <p><b>Copyright &copy; 2018. Accommodation</b> </p>
+    </footer>
 </body>
 </html>

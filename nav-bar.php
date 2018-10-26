@@ -42,16 +42,3 @@ function toggleNav(){
 }
 
 ?>
-<!--
-<div class="thetowns">
-
-<p><a href="displaynrb.php" style="text-decoration: none; text-align:  center; ">Nairobi</a></p>
-
-<p><a href="displaynax.php" style="text-decoration: none; text-align:  center;">Nakuru</a></p>
-
-
-<p><a href="displaymsa.php" style="text-decoration: none; text-align:  center;">Mombasa</a></p>
-
-
-<p><a href="displaynyeri.php" style="text-decoration: none; text-align:  center;">Nyeri</a></p>
-</div> -->

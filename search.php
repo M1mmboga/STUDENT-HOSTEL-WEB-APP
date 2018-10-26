@@ -1,15 +1,13 @@
-				<?php 
+<?php 
 session_start();
-				include('../nav-bar.php');
 ?>
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html>
-	
-	<head>
-		<title>Search</title>
-		<?php include('../links.php');
-		?>
-		<!-- Latest compiled and minified CSS -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 <!-- jQuery library -->
@@ -21,15 +19,16 @@ session_start();
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-<!--css link to new nav bar -->
-<link rel="stylesheet" href="css/styles1.css">
+	<title>Searches</title>
 
-<!-- the images -->
+		<?php include('links.php');?>
 
+<link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+	
 
-	</head>
-
-	<body>
+<?php include ("nav-bar.php"); ?>
 
 <div class="container-fluid padding">
 	<div class="row-padding">
@@ -37,7 +36,7 @@ session_start();
 <?php
 
 
-include('connect.php');
+include('php/connect.php');
 
 $error = '';
 if(isset($_POST['search-btn'])){
@@ -63,7 +62,7 @@ if(isset($_POST['search-btn'])){
 		showCards($result);
 	}else{
 		//showNone();
-				header("location: ../homepage1.php");
+				header("location: homepage1.php");
 				//$_SESSION['message'] = "That hostel is not available";
 
 	}
@@ -86,15 +85,13 @@ function showCards($result){
 		$data.= '
 			<div class="col-md-4">
 				<div class="card">
-					<img class="card-img-top" src=".'.$image.'">
+					<img class="card-img-top" src="'.$image.'">
 					<div class="card-body">
 						<h4 class="card-title">'.$house_name.'</h4>
 						<p class="card-text">'.$house_description.'</p>
-						<a class="btn btn-outline-primary" href="book.php?id='.$id.'">Book</a>
-						<a class="btn btn-outline-primary" href="../display.php">View</a>
-						<a class="btn btn-outline-primary" href="../homepage1.php">Back Home</a>
-
-						
+						<a class="btn btn-outline-primary" href="Booking/cartAction.php?action=addToCart&id='.$id.'">Book</a>
+						<a class="btn btn-outline-primary" href="display.php">View</a>
+						<a class="btn btn-outline-primary" href="homepage1.php">Back Home</a>
 						</div>
 				</div>
 			</div>
@@ -114,7 +111,10 @@ function showCards($result){
 </div>
 </div>
 
-
-	</body>
+	<!-- website footer-->
+	<footer style="position: fixed;">
+		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
+		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
+	</footer>
+</body>
 </html>
-

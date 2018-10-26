@@ -107,7 +107,7 @@ if(isset($_POST["submit1"])){
 
 		<li><a href="logout.php">Log Out</a></li>
 		<li><a href="#">Manage Account</a></li>
-		<li><a href="homepage2.php">User Home Page</a></li>
+		<li><a href="homepage1.php">User Home Page</a></li>
 		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
 
@@ -155,7 +155,13 @@ if(isset($_POST["submit1"])){
 					<label>House Image</label>
 					<input type="file" name="image" id="image" class="form-control"><br>
 					<label>House Category</label>
-					<input type="text" name="category" id="category" class="form-control"><br>
+					<select name="category"  class="form-control" >
+						<option value="Bedsitter">Bedsitter</option>
+						<option value="One Bedroom">One Bedroom</option>
+						<option value="Servant Quarter">Servant Quarter</option>
+						<option value="Shared Room">Shared Room</option>
+
+					</select><br>
 					<label>House Description</label>
 					<textarea  name="description" id="description" class="form-control"></textarea>
 					<br>

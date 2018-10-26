@@ -1,13 +1,19 @@
 <?php 
 
-$firstname = $_REQUEST['firstname'];
-$lastname = $_REQUEST['lastname'];
-$email = $_REQUEST['eemail'];
-$county = $_REQUEST['ccounty'];
-$inquiry = $_REQUEST['iinquiry'];
+session_start();
 
-$msg = "Firstname: $firstname\nLastname: $lastname\nEmail: $email\nCounty: $county\nInquiry: $inquiry";
+if (isset($_POST['respond'])) {
+	
 
-mail("mmbogamiriam2@gmail.com", "Website feedback", " Info is: \n\n$msg", "From: \n$email");
 
-header("Location: thankscontact.php");
+	$message=$_POST['response'];
+	$to=$_POST['email'];
+	$headers = "From: mmbogamiriam2@gmail.com";
+
+	mail($to, "My Hostel Feedback", $message, $headers);
+	
+
+header("Location: viewfeedback.php");
+}
+
+

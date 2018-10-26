@@ -7,6 +7,9 @@ session_start();
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<?php include('links.php'); ?>
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="js/main.js" type="text/javascript" charset="utf-8" async defer></script>
 	<title>Home</title>
 	<link rel="stylesheet" href="css/styles1.css">
@@ -54,7 +57,7 @@ session_start();
 </h3>
 
 <!-- search bar -->
-<?php include('search-bar.php');?>
+<?php include('slider.php');?>
 
 
 
@@ -86,10 +89,13 @@ session_start();
 	</table>
 	
 </div>
+
+
 <!-- website footer-->
 	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
 	</footer>
+	
 </body>
 </html>

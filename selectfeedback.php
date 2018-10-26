@@ -32,6 +32,7 @@ if(isset($_POST["feedback_id"]))
 				<td>'.$row["inquiry"].'</td>
 			</tr>
 			
+			
 			';
 		}
 	$output .= "</table></div>";
