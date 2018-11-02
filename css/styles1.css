@@ -64,3 +64,15 @@
 		.section-title{
 			text-align: center;
 		}
+
+		.card-img-custom{
+			height: 200px;
+		}
+
+		.section-break{
+ 			border:  1px thin teal;
+ 		}
+
+ 		.single-testimonial p, .single-testimonial h3{
+ 			font-weight: lighter;
+ 		}

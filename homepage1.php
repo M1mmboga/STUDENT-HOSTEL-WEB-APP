@@ -4,15 +4,13 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<?php include('links.php'); ?>
-	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="js/main.js" type="text/javascript" charset="utf-8" async defer></script>
-	<title>Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<?php include('temp-links.php'); ?>
+    <?php include('links.php'); ?>
+    <script src="js/main.js" type="text/javascript" charset="utf-8" async defer></script>
 	<link rel="stylesheet" href="css/styles1.css">
+	<title>Home</title>
 
 
 	<script>
@@ -43,12 +41,12 @@ session_start();
 
 	</script>
 </head>
-<body>
+<body class="loader-active">
 	
 	<?php include("nav-bar.php");?>
 
 <!-- Slideshow images-->
-<img name="slide" width="90%" height="400px" style="padding-left: 70px;">
+<img name="slide" width="90%"  style="padding-left: 70px; height:400px">
 
 <!--why us section -->
 
@@ -60,39 +58,150 @@ session_start();
 <?php include('slider.php');?>
 
 
-
 <!-- images to explain why us-->	
-<img src="security.png" alt="Security" style="border-radius: 50%; padding-left: 50px;" height="300px" width="400px">
-<img src="affordability.png" alt="Affordability" style="border-radius: 50%;" height="300px" width="400px">
-<img src="legitimacy.png" alt="Legitimacy" style="border-radius: 50%;" height="300px" width="400px">
+
+<!--
+<p style="font-family: montserrat; text-align: center; font-size: 35px;"><u>Why use Myhostel.com?</u></p>
+<div class="row">
+	<div class="card col-md-4 d-flex align-items-stretch" style="width: 18rem;">
+  <img src="security.png" alt="Security" class="card-img-top">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<div class="card col-md-4 d-flex align-items-stretch" style="width: 18rem;">
+  <img src="affordability.png" alt="Affordability"  class="card-img-top" style="height: 200px;">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<div class="card col-md-4 d-flex align-items-stretch" style="width: 18rem;">
+ <img src="legitimacy.png" alt="Legitimacy" class="card-img-top">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
 
 </div>
 
-<!-- reviews part-->
-<div class="reviews">
-
-	<p style="text-align: center; font-size: 30px; color: black;font-family: papyrus;">Student reviews</p>
-	<hr style="width: 120px;">
-		
-	</style>
-	<table style="text-align: center; color: black; font-size: 28px; ">
-		<tr style="font-weight: bold; font-family: papyrus; ">
-				<td>Jane Njeri</td>
-				<td>Collete Consesa</td>
-				<td>Brian Bundi</td>
-			</tr>
-		<tr style="font-style: italic; font-family: papyrus;">
-			<td>An amazing student living site...</td>
-		<td>Good service by the facilitators...</td>
-		<td>What pulled me to My Hostel is the affordable prices...</td>
-	</tr>
-	</table>
-	
 </div>
+<br><br>
+-->
+
+
+<!--== Services Area Start ==-->
+<section id="service-area" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Section Title Start -->
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>Why choose us?</h2>
+                    <span class="title-line"><i class="fa fa-hotel"></i></span>
+                    
+                </div>
+            </div>
+            <!-- Section Title End -->
+        </div>
+
+
+        <!-- Service Content Start -->
+        <div class="row">
+            <!-- Single Service Start -->
+            <div class="col-lg-4 text-center">
+                <div class="service-item">
+                    <i class="fa fa-check"></i>
+                    <h3>VERIFIED</h3>
+                    <p>All our hostels are verified. No fraudsters here!</p>
+                </div>
+            </div>
+            <!-- Single Service End -->
+
+            <!-- Single Service Start -->
+            <div class="col-lg-4 text-center">
+                <div class="service-item">
+                    <i class="fa fa-key"></i>
+                    <h3>SECURE</h3>
+                    <p>our transactions are all encrypted to ensure your data is kept safe.</p>
+                </div>
+            </div>
+            <!-- Single Service End -->
+
+            <!-- Single Service Start -->
+            <div class="col-lg-4 text-center">
+                <div class="service-item">
+                    <i class="fa fa-money"></i>
+                    <h3>AFFORDABLE</h3>
+                    <p>No need to break the bank. Our prices are pocket friendly.</p>
+                </div>
+            </div>
+            <!-- Single Service End -->
+        </div>
+        <!-- Service Content End -->
+    </div>
+</section>
+<!--== Services Area End ==-->
+<hr class="section-break">
+<!--== Testimonials Area Start ==-->
+<section id="testimonial-area" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Section Title Start -->
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>Testimonials</h2>
+                    <span class="title-line"><i class="fa fa-bed"></i></span>
+                    <p>Let's hear from some of our previous customers.</p>
+                </div>
+            </div>
+            <!-- Section Title End -->
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-md-12 m-auto">
+                <div class="testimonial-content">
+                    <!--== Single Testimoial Start ==-->
+                    <div class="single-testimonial">
+                        <p class="lead">An amazing student living site...</p>
+                        <h3 class="lead">Salma Mohammed</h3>
+                        <div class="client-logo">
+                            <img src="assets/img/client/client-pic-1.jpg" alt="JSOFT">
+                        </div>
+                    </div>
+                    <!--== Single Testimoial End ==-->
+
+                    <!--== Single Testimoial Start ==-->
+                    <div class="single-testimonial">
+                        <p class="lead">Good service by the facilitators...</p>
+                        <h3 class="lead">Jane Njeri</h3>
+                        <div class="client-logo">
+                            <img src="assets/img/client/client-pic-3.jpg" alt="JSOFT">
+                        </div>
+                    </div>
+                    <!--== Single Testimoial End ==-->
+
+                    <!--== Single Testimoial Start ==-->
+                    <div class="single-testimonial">
+                        <p class="lead">What pulled me to My Hostel is the affordable prices...</p>
+                        <h3 class="lead">Brian Bundi</h3>
+                        <div class="client-logo">
+                            <img src="assets/img/client/client-pic-2.jpg" alt="JSOFT">
+                        </div>
+                    </div>
+                    <!--== Single Testimoial End ==-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--== Testimonials Area End ==-->
+
 
 
 <!-- website footer-->
-	<footer>
+	<footer style="height: 120px;">
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 				<p>Contact us : myhostelaccommodation@gmail.com</p>
 

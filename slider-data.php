@@ -24,9 +24,33 @@ session_start();
 		<?php include('links.php');?>
 
 <link rel="stylesheet" href="styles1.css">
+<script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
-	
+<script>	
+	$(document).on('click', '#book_btn', function(event){
+			event.preventDefault();
+
+			var href = $(this).attr('href');
+			var user_id = $('#user_id').val();
+
+			$.ajax({
+				url:"php/check-booked.php",
+				method:"post",
+				data:{user_id:user_id},
+				success:function(data)
+				{
+					if(data == ""){
+						location.replace(href);
+					}else{
+						alert("You already made a booking");
+					}
+				}
+			});
+
+		});
+
+</script>	
 
 <?php include ("nav-bar.php"); ?>
 
@@ -90,7 +114,7 @@ function showCards($result){
 					<div class="card-body">
 						<h4 class="card-title">'.$house_name.'</h4>
 						<p class="card-text">'.$house_description.'</p>
-						<a class="btn btn-outline-primary" href="Booking/cartAction.php?action=addToCart&id='.$id.'">Book</a>
+						<a class="btn btn-outline-primary" href="Booking/cartAction.php?action=addToCart&id='.$id.'" id="book_btn">Book</a>
 						<a class="btn btn-outline-primary" href="display.php">View</a>
 						<a class="btn btn-outline-primary" href="homepage1.php">Back Home</a>
 					</div>
@@ -107,23 +131,24 @@ function showCards($result){
 
 function noResults(){
             echo '
-                <div class="lead m-auto pb-3">No results found! <br>
+                <div class="alert alert-warning">No results found! <br>
                 Search again<br>
                 Or view all or available hostels <a href="display.php">here</a></div>
 
             ';
+            include('slider.php');
+
            
         }
 
 ?>
-
-
+<input type="hidden" id="user_id" value="<?= $_SESSION['userid'];?>">
 		
 </div>
 </div>
 
 	<!-- website footer-->
-	<footer>
+	<footer style="height: 120px;">
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 				<p>Contact us : myhostelaccommodation@gmail.com</p>
 

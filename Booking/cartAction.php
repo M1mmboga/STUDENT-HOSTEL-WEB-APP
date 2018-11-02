@@ -59,6 +59,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                 $stmt->bind_param("sssss",$_SESSION['userid'], $item['id'], $item['subtotal'],$from,$to);
                 $bool = $stmt->execute();
                 $orderID = $stmt->insert_id;
+
             }
             
             

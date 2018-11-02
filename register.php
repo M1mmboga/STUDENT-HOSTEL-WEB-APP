@@ -21,9 +21,7 @@ session_start();
 	<style>
 body
 		{
-			font-family: Arial;
-			width: 100%;
-			background: url('studentlife.png');
+			background: url('wallpaper2.jpg');
 			background-repeat: no-repeat;
 			height: 100%;
 			width: 100%;
@@ -65,6 +63,17 @@ body
 		{
 			display: none;
 		}
+				footer
+{
+ bottom: 0px;
+ text-align: center;
+ width: 100%;
+ left: 0;
+ color: black;
+ height: 100px;
+ padding-top: 10px;
+ position: fixed;
+ }
 	</style>
 </head>
 <body>
@@ -72,12 +81,13 @@ body
 		<div class="nav">
 	<ul>
 
-		<li><a href="#"> <button type="button" name="add" id="add" data-toggle="modal" data-target="#signup1" class="btn btn-warning" style="color: blue; background-color: white; padding-left: 40px; border-style: none;">Sign Up</button> </a></li>
-		<li><a href="#"><button type="button" name="add" id="add" data-toggle="modal" data-target="#login1" class="btn btn-warning" style="color: blue; background-color: white; padding-left: 35px; border-style: none; margin-right: 30px;">Login</button></a></li>
+		<li><a href="#"> <button type="button" name="add" id="add" data-toggle="modal" data-target="#signup1" class="btn btn-warning" style="color: blue; background-color: white; padding-left: 40px; font-family: serif; border-style: none; font-size: 30px;">Sign Up</button> </a></li>
+		<li><a href="#"><button type="button" name="add" id="add" data-toggle="modal" data-target="#login1" class="btn btn-warning" style="color: blue; background-color: white; padding-left: 35px; font-family: serif; border-style: none; margin-right: 30px; font-size: 30px;">Login</button></a></li>
 	</ul>
 
 
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation </i></h1>
+<h1 style="font-size: 35px; color: white; font-family: serif; font-weight: bolder;"><i>Find Your Accommodation </i></h1><br><br><br><br><br><br>
+<p style="font-size: 45px; text-align: center; color: white; font-family: serif;  font-weight: bolder;">Are you a student in search of good accommodation in Nairobi? <br> Join us today, finding a good hostel is a click away...</p>
 </div>
 <h3 style="color: red;"><?php echo $error;?></h3>
 <!-- login pop up form-->
@@ -178,5 +188,13 @@ body
 	</div>
 </div>
 
+
+
+<footer>
+	
+		<p>Contact us : myhostelaccommodation@gmail.com</p>
+		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
+
+</footer>
 </body>
 </html>

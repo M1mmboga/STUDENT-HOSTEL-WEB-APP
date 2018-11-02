@@ -115,7 +115,7 @@ if($cart->total_items() <= 0){
     </style>
 </head>
 <body>
-<?php include '../nav-bar.php'; ?>
+<?php include './nav-bar.php'; ?>
 
 <div class="container">
 <br>

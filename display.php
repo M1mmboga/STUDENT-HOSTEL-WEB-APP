@@ -13,6 +13,30 @@ mysqli_select_db($link,"myhostel");
 
 	<title></title>
 	<link rel="stylesheet" href="styles1.css">
+
+	<script src='js/autosize.js'></script>
+	<style>
+	div.gallery {
+    margin: 45px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 280px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: 200px;
+}
+
+div.desc {
+    padding: 25px;
+    text-align: center;
+}	
+	</style>
 </head>
 <body>
 	
@@ -35,8 +59,6 @@ mysqli_select_db($link,"myhostel");
 
 
 <!-- just display all available places-->
-<div class="thetowns">
-	<table class="table">
 
 <?php 
 $res=mysqli_query($link,"select * from products order by id DESC");
@@ -47,26 +69,25 @@ while($row=mysqli_fetch_array($res))
 
 
 <!--php to display to house side -->
-		<tr class="d-flex">
-		<td>
-  				<img src='<?php echo $row["image"]; ?>' alt="" height="250px" width="500px"/>
+<div class="gallery">
+  <a target="_blank" >
 
-  <?php echo $row["house_name"]; ?>  Ksh <?php echo $row["house_price"]; ?>  
+  	<img src='<?php echo $row["image"]; ?>' alt="" height="250px" width="500px"/>
 
+  </a>
 
-				<input type="button" name="view" value="Click to view accommodation" id="<?php echo $row["id"]?>" class="btn btn-info btn-xs view_data"/></td>
-
-</tr>
-
-
+  <div class="desc">    <?php echo $row["house_name"]; ?>  Ksh <?php echo $row["house_price"]; ?>  in <?php echo $row["location"]; ?>	<input type="button" name="view" value="Click to view accommodation" id="<?php echo $row["id"]?>" class="btn btn-info btn-xs view_data"/>
+ 
+</div>
+</div>
+		
 <?php 
 }
 
 ?>
-  </table>
 
 <div id="dataModal" class="modal fade">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content" style="color: black;">
 			<div class="modal-header">
 				<h2 style="text-align: left;">House Details</h2>
@@ -78,10 +99,13 @@ while($row=mysqli_fetch_array($res))
 		</div>
 	</div>
 </div>
-</div>
+<input type="hidden" id="user_id" value="<?= $_SESSION['userid'];?>">
 
-
+	
 <script>
+
+autosize(document.querySelectorAll('textarea'));
+
 	$(document).ready(function()
 	{
 		$('.view_data').click(function()
@@ -95,24 +119,43 @@ while($row=mysqli_fetch_array($res))
 				{
 					$('#house_detail').html(data);
 					$('#dataModal').modal("show");
-
 				}
 			});
 
 
 		});	
 
-		
+		$(document).on('click', '#book_btn', function(event){
+			event.preventDefault();
+
+			var href = $(this).attr('href');
+			var user_id = $('#user_id').val();
+
+			$.ajax({
+				url:"php/check-booked.php",
+				method:"post",
+				data:{user_id:user_id},
+				success:function(data)
+				{
+					if(data == ""){
+						location.replace(href);
+					}else{
+						alert("You already made a booking");
+					}
+				}
+			});
+
+		});
 
 	});
 </script>
 
-<!-- website footer-->
-	<footer style="position: relative;">
+<!-- website footer
+	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 				<p>Contact us : myhostelaccommodation@gmail.com</p>
 
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
-	</footer>
+	</footer>-->
 </body>
 </html>

@@ -14,6 +14,20 @@ mysqli_select_db($link,"myhostel");
 
 	<title></title>
 	<link rel="stylesheet" href="styles1.css">
+	<style>
+	
+					footer
+{
+ bottom: 0px;
+ text-align: center;
+ width: 100%;
+ left: 0;
+ color: black;
+ height: 120px;
+ padding-top: 10px;
+ position: fixed;
+ }	
+	</style>
 </head>
 <body>
 	
@@ -21,7 +35,6 @@ mysqli_select_db($link,"myhostel");
 	<ul>
 
 		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="#">Manage Account</a></li>
 		<li><a href="homepage2.php">User Home Page</a></li>
 		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
@@ -33,6 +46,7 @@ mysqli_select_db($link,"myhostel");
 
 <!-- just display all available places-->
 <div class="thetowns">
+	<table class="table">
 
 <?php 
 $res=mysqli_query($link,"select * from users order by userid DESC");
@@ -43,7 +57,6 @@ while($row=mysqli_fetch_array($res))
 
 
 <!--php to display to house side -->
-	<table class="table">
 		<tr>
 			<td>
 
@@ -53,14 +66,16 @@ while($row=mysqli_fetch_array($res))
 </td>
 </tr>
 
-  </table>
 
 
 <?php 
 }
 
 ?>
-
+</td>
+</tr>
+</table>
+</div>
 <div id="dataModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content" style="color: black; width:100%;">
@@ -117,7 +132,7 @@ while($row=mysqli_fetch_array($res))
 
 
 <!-- website footer-->
-	<footer>
+	<footer style="position: fixed;">
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 				<p>Contact us : myhostelaccommodation@gmail.com</p>
 

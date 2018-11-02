@@ -14,7 +14,7 @@ if(isset($_POST["house_id"]))
 			$output .= '
 			<form method="post" action="php/edithouse.php">
 				<input type="hidden" name="house_id" value="'.$row["id"].'" /> 
-				<div class="modal-body" id="house_detail">
+				<div class="modal-body " id="house_detail">
 					<div class="table-responsive">
 						<table class="table table-bordered"
 							<tr>
@@ -39,7 +39,8 @@ if(isset($_POST["house_id"]))
 							</tr>
 							<tr>
 								<td><label>House Description</label></td>
-								<td><input type="text" name="house_description" value="'.$row["house_description"].'" class="form-control" required/></td>
+								<td><textarea name="house_description" id="house_description" class="form-control" style="height: auto;" required">'.$row["house_description"].'</textarea>
+								</td>
 							</tr>
 							<tr>
 								<td><label>House Location</label></td>
@@ -50,7 +51,7 @@ if(isset($_POST["house_id"]))
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default"><a href="Booking/cartAction.php?action=addToCart&id='.$row['id'].'">Book Now</a></button>
+					<button type="button" class="btn btn-default"><a href="Booking/cartAction.php?action=addToCart&id='.$row['id'].'" id="book_btn">Book Now</a></button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</form>

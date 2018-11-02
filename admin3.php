@@ -95,8 +95,9 @@ if(isset($_POST["submit1"])){
  width: 100%;
  left: 0;
  color: white;
- height: 100px;
+ height: 120px;
  padding-top: 10px;
+ position: fixed;
  }
  
 	</style>
@@ -106,7 +107,6 @@ if(isset($_POST["submit1"])){
 	<ul>
 
 		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="#">Manage Account</a></li>
 		<li><a href="homepage1.php">User Home Page</a></li>
 		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
@@ -130,7 +130,7 @@ if(isset($_POST["submit1"])){
 <td>
 		<div class="container">
 		<div class="table-responsive">
-			<button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add Accommodation</button>
+			<button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning" style="margin-left: 45px;">Add Accommodation</button>
 		</div>
 	</div>
 </td>
@@ -176,10 +176,17 @@ if(isset($_POST["submit1"])){
 		</div>
 	</div>
 	</div>
-<td style="padding-left: 90px;"><input type="button" style="background-color: white; border-color: none; border-style: none; font-size: 20px; font-weight: bold;" value="View All Accommodations" onclick="opengallery()"></td>
+<td ><input type="button" class="btn btn-warning" style="border-color: none; border-style: none; font-size: 20px; font-weight: bold;" value="View Accommodations" onclick="opengallery()"></td>
 
-<td style="padding-left: 60px;"><a href="viewfeedback.php">View Feedback</a></td>
-<td style="padding-left: 60px;"><a href="viewusers.php">View Users</a></td>
+<td style="padding-left: 60px;"><a href="viewfeedback.php" class="btn btn-warning">View Feedback</a></td>
+<td style="padding-left: 60px;"><a href="viewusers.php" class="btn btn-warning">View Users</a></td>
+
+
+<tr>
+	<td><img src="users.jpg" width="350px;" height="200px;" style="padding-right: 90px; padding-left: 60px;"></td>
+</tr>
+<tr>
+<td style="padding-left: 60px;"><a href="viewusers.php" class="btn btn-warning">Bookings Made</a></td><tr>
 
 
 <script>
@@ -265,5 +272,13 @@ if(isset($_POST["submit1"])){
 		mywindow2= window.open('display1.php','_self');
 	}
 </script>
+
+<!-- website footer-->
+	<footer>
+		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
+				<p>Contact us : myhostelaccommodation@gmail.com</p>
+
+		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
+	</footer>
 </body>
 </html>

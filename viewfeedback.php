@@ -21,8 +21,7 @@ mysqli_select_db($link,"myhostel");
 	<ul>
 
 		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="#">Manage Account</a></li>
-		<li><a href="homepage2.php">User Home Page</a></li>
+		<li><a href="homepage1.php">User Home Page</a></li>
 		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
 
@@ -33,6 +32,7 @@ mysqli_select_db($link,"myhostel");
 
 <!-- just display all available places-->
 <div class="thetowns">
+	<table class="table">
 
 <?php 
 $res=mysqli_query($link,"select * from contact order by feedbackid DESC");
@@ -43,7 +43,6 @@ while($row=mysqli_fetch_array($res))
 
 
 <!--php to display to house side -->
-	<table class="table">
 		<tr>
 			<td>
 
@@ -54,13 +53,17 @@ while($row=mysqli_fetch_array($res))
 </td>
 </tr>
 
-  </table>
 
 
 <?php 
 }
 
 ?>
+
+</td>
+</tr>
+</table>
+</div>
 
 <div id="dataModal" class="modal fade">
 	<div class="modal-dialog modal-lg">
@@ -116,7 +119,7 @@ while($row=mysqli_fetch_array($res))
 
 
 <!-- website footer-->
-	<footer>
+	<footer style="height: 120px; position: fixed;">
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 		<p>Contact us : myhostelaccommodation@gmail.com</p>
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>

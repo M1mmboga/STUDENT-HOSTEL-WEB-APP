@@ -17,12 +17,11 @@ mysqli_select_db($link,"myhostel");
 </head>
 <body>
 	
-	<div class="">
+	<div class="nav">
 	<ul>
 
 		<li><a href="logout.php">Log Out</a></li>
-		<li><a href ="#">Manage Account</a></li>
-		<li><a href="homepage2.php">User Home Page</a></li>
+		<li><a href="homepage1.php">User Home Page</a></li>
 		<li><a href="admin3.php">Admin Homepage</a>	</li>
 	</ul>
 
