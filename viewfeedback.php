@@ -17,19 +17,7 @@ mysqli_select_db($link,"myhostel");
 </head>
 <body>
 	
-	<div class="nav">
-	<ul>
-
-		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="homepage1.php">User Home Page</a></li>
-		<li><a href="admin3.php">Admin Homepage</a>	</li>
-	</ul>
-
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
-</div>
-
-
-
+<?php include './admin-nav.php'; ?>
 <!-- just display all available places-->
 <div class="thetowns">
 	<table class="table">
@@ -38,30 +26,21 @@ mysqli_select_db($link,"myhostel");
 $res=mysqli_query($link,"select * from contact order by feedbackid DESC");
 while($row=mysqli_fetch_array($res))
 {
-
 ?>
-
-
 <!--php to display to house side -->
-		<tr>
-			<td>
-
-  <p style="color:black;"><?php echo $row["fname"]." ".$row["lname"]; ?></p>
-
-<td>
-	<input type="button" name="view" value="View" id="<?php echo $row["feedbackid"]; ?>" class="btn btn-info btn-xs view_data"/>
-</td>
+<tr>
+    <td>
+        <p style="color:black;"><?php echo $row["fname"]." ".$row["lname"]; ?></p>
+    </td>
+    <td>
+        <input type="button" name="view" value="View" id="<?php echo $row["feedbackid"]; ?>" class="btn btn-info btn-xs view_data"/>
+    </td>
 </tr>
-
-
 
 <?php 
 }
 
 ?>
-
-</td>
-</tr>
 </table>
 </div>
 
@@ -98,20 +77,16 @@ while($row=mysqli_fetch_array($res))
 			//alert(user_id);
 
 			$.ajax({
-				url:"selectfeedback.php",
-				method:"post",
-				data:{feedback_id:feedback_id},
+                            url:"selectfeedback.php",
+                            method:"post",
+                            data:{feedback_id:feedback_id},
 
-				success:function(data)
-				{
-					alert();
-					$('#feedback_detail').html(data);
-					$('#dataModal').modal("show");
-
-				}
+                            success:function(data)
+                            {
+                                $('#feedback_detail').html(data);
+                                $('#dataModal').modal("show");
+                            }
 			});
-
-
 		});	
 	});
 </script>

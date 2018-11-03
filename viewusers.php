@@ -106,36 +106,25 @@ while($row=mysqli_fetch_array($res))
 	{
 		$('.view_data').click(function()
 		{
-			var user_id = $(this).attr("id");
+                    var user_id = $(this).attr("id");
+                    $.ajax({
+                            url:"selectusers.php",
+                            method:"post",
+                            data:{user_id:user_id},
 
-			//alert(user_id);
-
-			$.ajax({
-				url:"selectusers.php",
-				method:"post",
-				data:{user_id:user_id},
-
-				success:function(data)
-				{
-					alert();
-					$('#user_detail').html(data);
-					$('#dataModal').modal("show");
-
-				}
-			});
-
-
+                            success:function(data)
+                            {
+                                $('#user_detail').html(data);
+                                $('#dataModal').modal("show");
+                            }
+                    });
 		});	
 	});
 </script>
-
-
-
 <!-- website footer-->
-	<footer style="position: fixed;">
+	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
-				<p>Contact us : myhostelaccommodation@gmail.com</p>
-
+                    <p>Contact us : myhostelaccommodation@gmail.com</p>
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
 	</footer>
 </body>

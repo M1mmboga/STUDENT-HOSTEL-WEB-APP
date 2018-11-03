@@ -13,19 +13,19 @@
        
       <label for="amount">Price range:</label>
       <input type="text" id="amount" class="form-control" readonly>       
-     <input type="hidden" id="price-min" name="price-min" readonly> 
-     <input type="hidden" id="price-max" name="price-max" readonly> 
+     <input type="hidden" id="price-min" name="price-min"> 
+     <input type="hidden" id="price-max" name="price-max"> 
 
     <div id="slider-range"></div>
 
       <label class="mt-3">Available Locations</label>
       <div class="input-group">
-        <select class="form-control" name="location" id="location" class="mx-2" required="">
+        <select class="form-control mx-2" name="location" id="location" required="">
           <option selected>Choose location</option>
         </select>
       </div>  
         <center>
-          <input type="submit" class='btn btn-primary px-3 mt-2' value="submit" name="submit">
+          <input type="submit" class='btn btn-primary px-3 mt-2' value="Search" name="submit">
         </center>
       </form>
     </div>

@@ -21,7 +21,7 @@ if(isset($_POST["feedback_id"]))
 			</tr>
 			<tr>
 				<td><label>Email</label></td>
-				<td><input type="email" name="email" value="'.$row["email"].'" style="width:250px;" required readonly/></td>
+				<td><input type="email" name="email" value="'.$row["email"].'" class="form-control" required readonly/></td>
 
 			</tr>
 			

@@ -46,12 +46,12 @@ session_start();
 	<?php include("nav-bar.php");?>
 
 <!-- Slideshow images-->
-<img name="slide" width="90%"  style="padding-left: 70px; height:400px">
+<img name="slide"  style="padding-left: 70px; height:400px; width:90%">
 
 <!--why us section -->
 
 <div class="why">
-	<h3 style="font-size: 35px; text-align: center; color: black; font-family: serif;"><i>Why book with Accommodation?</i><hr style="width: 500px;">
+	<h3 style="font-size: 35px; text-align: center; color: black; font-family: serif;"><i>Find your perfect match</i><hr style="width: 500px;">
 </h3>
 
 <!-- search bar -->

@@ -1111,7 +1111,7 @@ a.slicknav_btn {
 }
 
 .testimonial-content .owl-dots div.owl-dot {
-	border: 1px solid #000;
+	border: 1px solid teal;
 	border-radius: 10px;
 	display: inline-block;
 	height: 5px;
@@ -1122,7 +1122,7 @@ a.slicknav_btn {
 }
 
 .testimonial-content .owl-dots div.owl-dot.active {
-	background-color: #000;
+	background-color: teal;
 }
 
 

@@ -1,7 +1,6 @@
 <?php 
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,66 +10,18 @@ session_start();
 
 	<title>Contact us</title>
 	<link rel="stylesheet" href="destinationcss.css">
-	<style>
-body
-		{
-			font-family: montserrat;
-			width: 100%;
-		}
-		ul
-		{
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-		ul li
-		{
-			float: right;
-			width: 200px;
-			height: 40px;
-			background-color: black;
-			opacity: .8;
-			line-height: 40px;
-			text-align: center;
-			font-size: 18px;
-			margin-right: 8px;
-			padding-left: 16px;
-		}
-		ul li a
-		{
-			text-decoration: none;
-			color: white;
-			display: block;
-		}
-		ul li a:hover
-		{
-			background-color: green;
-		}
-		ul li:hover ul li
-		{
-			display: block;
-		}
-		ul li ul li
-		{
-			display: none;
-		}
-
-		footer
-{
- bottom: 0px;
- background-color: teal;
- text-align: center;
- width: 100%;
- left: 0;
- color: white;
- height: 100px;
- padding-top: 10px;
- position: fixed;
- }
-	</style>
+        <script>
+        $(function(){
+            //Form styling
+         $('#contact_form label').addClass('col-sm-2');   
+         $('#contact_form input').addClass('form-control');   
+         $('#contact_form select').addClass('form-control');   
+         $('#contact_form textarea').addClass('form-control');   
+        });
+        </script>
 </head>
 <body>
-<div class="nav">
+<!--<div class="nav">
 	<ul>
 
 		<li><a href="logout.php">Log Out</a></li>
@@ -84,80 +35,51 @@ body
 
 
 <h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
-</div>
+</div>-->
+<?php include './nav-bar.php'; ?>
 
-
-<div class="mycontactform" style="color:black; text-align: center; ">
-	<form action="contact.php" method="POST">
+<div class="mycontactform row justify-content-center"  style="color:black; text-align: center; ">
+<!--    See the Js above for the additional styling-->
+<form action="contact.php" id="contact_form" class="py-3" method="POST">
 		<p style="font-family: montserrat; font-weight: bold; font-size: 30px; margin-top: 10px; "><i>Kindly Submit Any Inquiry Information Below</i></p><br>
-		<label for="fname">First Name</label>
-		<input type="text"  name="firstname" placeholder="Enter your first name here..." required><br><br>
-
-		<label for="lname">Last Name</label>
-		<input type="text"  name="lastname" placeholder="Enter your last name here..." required><br><br>
-
-		<label for="email">Email</label>
-		<input type="text"  name="eemail" placeholder="Enter your email here..." required><br><br>
-
-		<label for="county">County</label>
-		<select  name="ccounty" placeholder="Enter your county here..." required>
-			<option value="Baringo">Baringo County</option>
-			<option value="Bomet">Bomet County</option>
-			<option value="Bungoma">Bungoma County</option>
-			<option value="Busia">Busia County</option>
-			<option value="ElgeyoMarakwet">Elgeyo Marakwet County</option>
-			<option value="Embu">Embu County</option>
-			<option value="Garissa">Garissa County</option>
-			<option value="HomaBay">Homa Bay County</option>
-			<option value="Isiolo">Isiolo County</option>
-			<option value="Kajiado">Kajiado County</option>
-			<option value="Kakamega">Kakamega County</option>
-			<option value="Kericho">Kericho County</option>
-			<option value="Kiambu">Kiambu County</option>
-			<option value="Kilifi">Kilifi County</option>
-			<option value="Kirinyaga">Kirinyaga County</option>
-			<option value="Kisii">Kisii County</option>
-			<option value="Kisumu">Kisumu County</option>
-			<option value="Kitui">Kitui County</option>
-			<option value="Kwale">Kwale County</option>
-			<option value="Laikipia">Laikipia County</option>
-			<option value="Lamu">Lamu County</option>
-			<option value="Machakos">Machakos County</option>
-			<option value="Makueni">Makueni County</option>
-			<option value="Mandera">Mandera County</option>
-			<option value="Meru">Meru County</option>
-			<option value="Migori">Migori County</option>
-			<option value="Marsabit">Marsabit County</option>
-			<option value="Mombasa">Mombasa County</option>
-			<option value="Muranga">Muranga County</option>
-			<option value="Nairobi">Nairobi County</option>
-			<option value="Nakuru">Nakuru County</option>
-			<option value="Nandi">Nandi County</option>
-			<option value="Narok">Narok County</option>
-			<option value="Nyamira">Nyamira County</option>
-			<option value="Nyandarua">Nyandarua County</option>
-			<option value="Nyeri">Nyeri County</option>
-			<option value="Samburu">Samburu County</option>
-			<option value="Siaya">Siaya County</option>
-			<option value="TaitaTaveta">Taita Taveta County</option>
-			<option value="TanaRiver">Tana River County</option>
-			<option value="TharakaNithi">Tharaka Nithi County</option>
-			<option value="TransNzoia">Trans Nzoia County</option>
-			<option value="Turkana">Turkana County</option>
-			<option value="UasinGishu">Uasin Gishu County</option>
-			<option value="Vihiga">Vihiga County</option>
-			<option value="Wajir">Wajir County</option>
-			<option value="WestPokot">West Pokot County</option>
-			
-		</select><br><br>
-
-		<label for="inquiry">Inquiry</label><br>
-		<textarea rows="10" cols="80"  name="iinquiry" placeholder="Write your inquiry here..." style="height:100px" required></textarea><br><br>
-
-		<input type="submit" value="Submit" name="submit1">
+                <div class="form-group row">
+                    <label for="fname" class="">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text"  name="firstname" class="form-control" placeholder="Enter your first name here..." required>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label for="lname">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text"  name="lastname" placeholder="Enter your last name here..." required>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label for="email">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text"  name="eemail" placeholder="Enter your email here..." required>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label for="county">County</label>
+                    <div class="col-sm-10">
+                        <?php include './county-list.php'; ?>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label for="inquiry">Inquiry</label><br>
+                    <div class="col-sm-10">
+                        <textarea rows="10" cols="80"  name="iinquiry" placeholder="Write your inquiry here..." style="height:100px" required></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary px-5 py-2" name="submit1">Submit</button>
 	</form>
 </div>
-
+</body>
 <!-- website footer-->
 	<footer>
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
@@ -165,5 +87,4 @@ body
 
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
 	</footer>
-</body>
 </html>

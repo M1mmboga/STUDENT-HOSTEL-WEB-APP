@@ -1,8 +1,5 @@
 <?php 
-
 session_start();
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +8,6 @@ session_start();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<?php include ('links.php') ;?>
 	<title>My Account</title>
-	<link rel="stylesheet" href="">
 </head>
 <body>
 	<?php include ('nav-bar.php') ;?> 
@@ -28,44 +24,41 @@ mysqli_select_db($conn,"myhostel");
 $query=("SELECT * from users where userid=$_SESSION[userid]") or(mysqli_error());
 $result=mysqli_query($conn,$query);
 //display data
-
-print "<table cellpadding=4>";
-	while($row=mysqli_fetch_array($result))
-	{
-
+echo '<div class="table-responsive">';
+print "<table class='table-sm table-dark text-white'>";
+	while($row=mysqli_fetch_array($result)){
 	print "<tr>
 	<td>Hello: </td>
 	<td>".$row['fullname']."</td>
 	</tr>
 
 	<tr>
-		<td>Username: </td>
+	<td>Username: </td>
 	<td>".$row['username']."</td>
-
 	</tr>
+        
 	<tr>
-			<td>Gender:</td>
+	<td>Gender:</td>
 	<td>".$row['gender']."</td>
-
 	</tr>
+        
 	<tr>
-				<td>Uni: </td>
+	<td>Uni: </td>
 	<td>".$row['uni']."</td>
-
 	</tr>
+        
 	<tr>
-				<td>Phone: </td>
+	<td>Phone: </td>
 	<td>".$row['phone']."</td>
-
 	</tr>
+        
 	<tr>
-				 <td>Email:</td>
+	<td>Email:</td>
 	<td>".$row['email']."</td>
-
 	</tr>";
 }
 print "</table>";
-
+echo '</div>';
 ?>
 </div><br>
 
@@ -80,7 +73,9 @@ mysqli_select_db($conn1,"myhostel");
 $query1 = ("SELECT * FROM `users` JOIN booking ON users.userid = booking.user_id JOIN products ON products.id = booking.house_id WHERE users.userid =$_SESSION[userid]") or die(mysqli_error());
 $result1=mysqli_query($conn1,$query1);
 //display my data
-echo "<table cellpadding=10>";
+
+echo '<div class="table-responsive">'
+. '<table class="table table-bordered">';
 
 echo "<tr>
 		<td><b><u>Hostel Name</td>
@@ -104,16 +99,16 @@ echo"
 
 }
 
-echo "</table>";
+echo "</table>"
+. "</div>";
 ?>
 </div>
 
 <!-- website footer-->
-	<footer style="position: fixed;" >
-		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
-				<p>Contact us : myhostelaccommodation@gmail.com</p>
-
-		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
+	<footer>
+            <p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
+            <p>Contact us : myhostelaccommodation@gmail.com</p>
+            <p><b>Copyright &copy; 2018. Accommodation</b> </p>
 	</footer>
 </body>
 </html>

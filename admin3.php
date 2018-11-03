@@ -41,89 +41,17 @@ if(isset($_POST["submit1"])){
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<?php include('links.php');?>
 	<title>Admin Panel</title>
-	<link rel="stylesheet" href="">
-
-	<style>
-		body
-		{
-			font-family: Arial;
-			width: 100%;
-		}
-		ul
-		{
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-		ul li
-		{
-			float: right;
-			width: 200px;
-			height: 40px;
-			background-color: black;
-			opacity: .8;
-			line-height: 40px;
-			text-align: center;
-			font-size: 18px;
-			margin-right: 8px;
-			padding-left: 16px;
-		}
-		ul li a
-		{
-			text-decoration: none;
-			color: white;
-			display: block;
-		}
-		ul li a:hover
-		{
-			background-color: green;
-		}
-		ul li:hover ul li
-		{
-			display: block;
-		}
-		ul li ul li
-		{
-			display: none;
-		}
-
-		footer
-{
- bottom: 0px;
- background-color: teal;
- text-align: center;
- width: 100%;
- left: 0;
- color: white;
- height: 120px;
- padding-top: 10px;
- position: fixed;
- }
- 
-	</style>
+        <link rel="stylesheet" href="css/admin-styles.css">
 </head>
 <body>
-	<div class="nav">
-	<ul>
-
-		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="homepage1.php">User Home Page</a></li>
-		<li><a href="admin3.php">Admin Homepage</a>	</li>
-	</ul>
-
-
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username'];?></i></h1>
-</div>
-
-
+<?php include './admin-nav.php'; ?>	
+    
 <table border="0" style="color: black; font-weight: bold;">
 <tr>
-<td><img src="admin1.jpg" width="300px;" height="200px;" style="padding-right: 90px; margin-left: 50px;"></a></td>
-<td><img src="admin1.jpg" width="300px;" height="200px;" style="padding-right: 90px;"></td>
-<td><img src="feedback.jpg" width="400px;" height="200px;" style="padding-right: 90px;"></td>
-<td><img src="users.jpg" width="350px;" height="200px;" style="padding-right: 90px;"></td>
-
-
+    <td><img src="admin1.jpg" class="adm-img" style="margin-left: 50px;"></td>
+    <td><img src="admin1.jpg" class="adm-img" ></td>
+    <td><img src="feedback.jpg" class="adm-img"></td>
+    <td><img src="users.jpg" class="adm-img"></td>
 </tr>
 
 <tr>
@@ -140,9 +68,8 @@ if(isset($_POST["submit1"])){
 			
 			<div class="modal-content">
 				<div class="modal-header">
-											<h4 class="modal-title">Add Accommodation</h4>
-
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Add Accommodation</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
 				<form method="post" id="insert_form" enctype="multipart/form-data">
@@ -155,39 +82,37 @@ if(isset($_POST["submit1"])){
 					<label>House Image</label>
 					<input type="file" name="image" id="image" class="form-control"><br>
 					<label>House Category</label>
-					<select name="category"  class="form-control" >
+					<select name="category"  class="form-control">
 						<option value="Bedsitter">Bedsitter</option>
 						<option value="One Bedroom">One Bedroom</option>
 						<option value="Servant Quarter">Servant Quarter</option>
 						<option value="Shared Room">Shared Room</option>
-
-					</select><br>
+					</select>
 					<label>House Description</label>
-					<textarea  name="description" id="description" class="form-control"></textarea>
+					<textarea name="description" id="description" class="form-control"></textarea>
 					<br>
 					<label>House Location</label>
 					<input type="text" name="location" id="location" class="form-control"><br>
-					<input type="submit" name="insert" id="insert" value="Insert">
+                                        <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-primary">
 				</form>
-			</div>
+                                </div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
 	</div>
-<td ><input type="button" class="btn btn-warning" style="border-color: none; border-style: none; font-size: 20px; font-weight: bold;" value="View Accommodations" onclick="opengallery()"></td>
+<td ><input type="button" class="btn btn-warning" value="View Accommodations" onclick="opengallery()"></td>
 
 <td style="padding-left: 60px;"><a href="viewfeedback.php" class="btn btn-warning">View Feedback</a></td>
 <td style="padding-left: 60px;"><a href="viewusers.php" class="btn btn-warning">View Users</a></td>
 
 
 <tr>
-	<td><img src="users.jpg" width="350px;" height="200px;" style="padding-right: 90px; padding-left: 60px;"></td>
+    <td><img src="users.jpg" width="350px;" height="200px;" style="padding-right: 90px; padding-left: 60px;"></td>
 </tr>
 <tr>
 <td style="padding-left: 60px;"><a href="viewusers.php" class="btn btn-warning">Bookings Made</a></td><tr>
-
 
 <script>
 		$(document).ready(function()
@@ -203,32 +128,26 @@ if(isset($_POST["submit1"])){
 				else if($('#price').val()=='')
 				{
 					alert("Price is required");
-
 				}
 				else if($('#rooms').val()=='')
 				{
 					alert("Number of rooms is required");
-
 				}
 				else if($('#image').val()=='')
 				{
 					alert("Image is required");
-
 				}
 				else if($('#category').val()=='')
 				{
 					alert("Category is required");
-
 				}
 				else if($('#description').val()=='')
 				{
 					alert("Description is required");
-
 				}
 				else if($('#location').val()=='')
 				{
 					alert("Location is required");
-
 				}
 				else
 				{
@@ -237,12 +156,12 @@ if(isset($_POST["submit1"])){
 						method:"POST",
 						data:new FormData(this),
 						contentType: false,
-			            cache: false,
-			            processData:false,
+                                                cache: false,
+                                                processData:false,
 						success:function(data)
 						{
 							$('#insert_form')[0].reset();
-							$('#add_data_Modal').modal('hide');
+//							$('#add_data_Modal').modal('hide');
 							if(data!=""){
 								alert(data);
 							}

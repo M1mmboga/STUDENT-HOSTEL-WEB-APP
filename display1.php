@@ -10,25 +10,12 @@ mysqli_select_db($link,"myhostel");
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<?php include('links.php'); ?>
-
-	<title></title>
 	<link rel="stylesheet" href="styles1.css">
+        <?php include('links.php'); ?>
 </head>
 <body>
-	
-	<div class="nav">
-	<ul>
 
-		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="homepage1.php">User Home Page</a></li>
-		<li><a href="admin3.php">Admin Homepage</a>	</li>
-	</ul>
-
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
-</div>
-
-
+<?php include './admin-nav.php'; ?>    
 <p class="lead" style="color:black; font-size: 200%; text-align: center;">All accomodations listed</p>;
 
 <!-- just display all available places-->
@@ -42,8 +29,8 @@ while($row=mysqli_fetch_array($res))
 ?>
 <!--php to display to house side -->
 	<tr>
-		<td><p style="color:black; "><?php echo $row["house_name"]?></p></td>
-		<td><input type="button" name="view" value="View" id="<?php echo $row["id"]?>" class="btn btn-info btn-xs view_data"/></td>
+            <td><p style="color:black; "><?php echo $row["house_name"];?></p></td>
+            <td><input type="button" name="view" value="View" id="<?php echo $row["id"];?>" class="btn btn-info btn-xs view_data"/></td>
 	</tr>
 <?php 
 }
@@ -53,19 +40,17 @@ while($row=mysqli_fetch_array($res))
 
 <div id="dataModal" class="modal fade">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content" style="color: black; width:100%;">
-			<div class="modal-header">
-				<h2 style="text-align: left;">House Details</h2>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-			</div>
-			<div id="products_modal">		
+            <div class="modal-content" style="color: black; width:100%;">
+                <div class="modal-header">
+                        <h2 style="text-align: left;">House Details</h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div id="products_modal">		
 
-			</div>
-	</div>
+                </div>
+            </div>
+        </div>
 </div>
-
-
-
 
 <script>
 	$(document).ready(function()
@@ -79,8 +64,8 @@ while($row=mysqli_fetch_array($res))
 				data:{house_id:house_id},
 				success:function(data)
 				{
-					$('#products_modal').html(data);
-					$('#dataModal').modal("show");
+                                    $('#products_modal').html(data);
+                                    $('#dataModal').modal("show");
 				}
 			});
 
@@ -103,30 +88,29 @@ while($row=mysqli_fetch_array($res))
 
 
 			function showProducts(){
-				$.ajax({
-					url:"php/get-products.php",
-					method:"post",
-					data:{house_id:house_id},
-					success:function(data)
-					{
-						alert(data);
-					}
-				});
-
+                            $.ajax({
+                                    url:"php/get-products.php",
+                                    method:"post",
+                                    data:{house_id:house_id},
+                                    success:function(data)
+                                    {
+                                            alert(data);
+                                    }
+                            });
 			}	
 
 
 			function deleteHouse(house_id){
-				$.ajax({
-					url:"deletehouse.php",
-					method:"post",
-					data:{house_id:house_id},
-					success:function(data)
-					{
-						alert(data);
-						location.reload();
-					}
-				});
+                            $.ajax({
+                                url:"deletehouse.php",
+                                method:"post",
+                                data:{house_id:house_id},
+                                success:function(data)
+                                {
+                                        alert(data);
+                                        location.reload();
+                                }
+                            });
 			}
 	});
 </script>
