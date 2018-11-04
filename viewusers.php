@@ -30,17 +30,8 @@ mysqli_select_db($link,"myhostel");
 	</style>
 </head>
 <body>
-	
-	<div class="nav">
-	<ul>
 
-		<li><a href="logout.php">Log Out</a></li>
-		<li><a href="homepage2.php">User Home Page</a></li>
-		<li><a href="admin3.php">Admin Homepage</a>	</li>
-	</ul>
-
-<h1 style="font-size: 25px; color: grey; font-family: serif;"><i>Find Your Accommodation, <?php echo $_SESSION['username']; ?></i></h1>
-</div>
+    <?php include './admin-nav.php'; ?>
 
 
 

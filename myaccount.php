@@ -119,7 +119,7 @@ function showBookings($result1){
             <td>".$data['total_price']."</td>
             <td>".$data['checkin']."</td>
             <td>".$data['checkout']."</td>
-            <td><a href='Booking/delete-booking.php?bookingid=".$data['bookingid']."&id=".$data['id']."&num=".$data['numberofrooms']."&occupied=".$data['occupied']."' class='btn btn-danger del_booking'><i class='fa fa-trash text-white'></i></a></td>
+            <td><a href='Booking/delete-booking.php?bookingid=".$data['bookingid']."&id=".$data['id']."&num=".$data['numberofrooms']."&occupied=".$data['occupied']."' class='btn btn-danger del_booking'><i class='fa fa-trash-alt text-white'></i></a></td>
             </tr>";
 
     }
