@@ -39,7 +39,7 @@ if(isset($_POST["house_id"]))
 							</tr>
 							<tr>
                                                             <td><label>House Description</label></td>
-                                                            <td><input type="text" name="house_description" value="'.$row["house_description"].'" class="form-control" required/></td>
+                                                            <td><textarea name="house_description"  class="form-control" required>'.$row["house_description"].'</textarea></td>
 							</tr>
 							<tr>
                                                             <td><label>House Location</label></td>

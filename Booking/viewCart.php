@@ -8,70 +8,8 @@ $cart = new Cart;
 <head>
     <title>Bookings</title>
     <meta charset="utf-8">
-    <?php include ('../links.php');?>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <style>
-   ul
-        {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        ul li
-        {
-            float: right;
-            width: 200px;
-            height: 40px;
-            background-color: black;
-            opacity: .8;
-            line-height: 40px;
-            text-align: center;
-            font-size: 18px;
-            margin-right: 8px;
-            padding-left: 16px;
-        }
-        ul li a
-        {
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-        ul li a:hover
-        {
-            background-color: green;
-        }
-        ul li:hover ul li
-        {
-            display: block;
-        }
-        ul li ul li
-        {
-            display: none;
-        }
-
-        footer
-{
- bottom: 0px;
- background-color: teal;
- text-align: center;
- width: 100%;
- left: 0;
- color: white;
- height: 100px;
- padding-top: 10px;
- }
-
-        input[type="number"] {
-            width: 20%;
-        }
-    </style>
+    <?php include './bootsrap-3.php'; ?>
+    <link rel="stylesheet" href="../css/booking.css">
     <script>
     function updateCartItem(obj,id){
         $.get("./cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
@@ -87,35 +25,15 @@ $cart = new Cart;
 
 <body>
 
-<div class="nav">
-  <ul>
-    <li><a href="../logout.php">Logout</a></li>
-        <li><a href="../contacts.php">Contact us</a></li>
-                        <li><a href="../myaccount.php">Manage Account</a></li>
+   <?php include './nav-bar.php'; ?>
 
-        <li><a href="../display.php">View Accommodations</a></li>
-        <li><a href="../homepage1.php">Home</a></li>
-    </ul>
-
-<h1 style="font-size: 25px; color: grey; font-family: serif;">
-    <i>Find Your Accommodation, 
-        <?php 
-            if(isset($_SESSION['username'])){
-                echo $_SESSION['username']; 
-            }else{
-                echo "easily today";
-            }
-        ?>      
-    </i>
-</h1>
-</div>
 <div class="container">
 <!-- Top links -->
 <!--End top links-->
 <br>
 <br>
     <h1><i><?php echo $_SESSION["username"]?>, proceed to book the hostel below</i></h1>
-    <table class="table" style="color:black;">
+    <table class="table" style="color:black; ">
     <thead>
         <tr>
             <th>Hostel Name</th>
@@ -145,6 +63,13 @@ $cart = new Cart;
         <?php } }else{ ?>
         <tr><td colspan="5"><p>Your cart is empty.....</p></td>
         <?php } ?>
+            <?php
+            $from=""; $to="";  $href = "#";
+            if(isset($_GET['from']) && isset($_GET['to'])){
+                $from = $_GET['from']; $to = $_GET['to']; 
+                $href = 'checkout.php?from='.$from.'&to='.$to;
+            }
+            ?>
     </tbody>
     <tfoot>
         <tr>
@@ -152,17 +77,17 @@ $cart = new Cart;
             <td colspan="2"></td>
             <?php if($cart->total_items() > 0){ ?>
             <td class="text-center"><strong>Total <?php echo 'Ksh'.$cart->total(); ?></strong></td>
-            <td><a href="#" class="btn btn-success btn-block" id='checkout-link'>Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
+            <td><a href="<?= $href;?>" class="btn btn-success btn-block" id='checkout-link'>Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
             <?php } ?>
         </tr>
     </tfoot>
     <div class="col-md-4">
         <label for="from">Check in date</label>
-    <input type="text" id="from" name="from" class="form-control" readonly required="">
+        <input type="text" id="from" name="from" class="form-control" value="<?= $from;?>" readonly required="">
     </div>
     <div class="col-md-4">
     <label for="to">Check out date</label>
-    <input type="text" id="to" name="to" class="form-control" readonly required="">
+    <input type="text" id="to" name="to" class="form-control" value="<?= $to;?>" readonly required="">
     </div>
     </table>
 </div>
@@ -170,10 +95,7 @@ $cart = new Cart;
     
 
   $( function() {
-
-$('input[type=text]').attr('autocomplete','off');
-
-
+    $('input[type=text]').attr('autocomplete','off');
     var dateFormat = "yy-mm-dd",
       from = $( "#from" )
         .datepicker({
@@ -213,9 +135,15 @@ $('input[type=text]').attr('autocomplete','off');
         if(from !=="" && to !== ""){
             $('#checkout-link').attr('href','checkout.php?from='+from+'&to='+to);
         }
-
-        
     }   
+    
+    $('#checkout-link').click(function(){
+       var href = $(this).attr('href');
+       
+       if(href == "#"){
+           alert("Pick check in and check out date first");
+       }
+    });
 
   } );
 </script>

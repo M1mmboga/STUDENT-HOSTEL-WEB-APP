@@ -9,8 +9,7 @@ mysqli_select_db($link,"myhostel");
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<?php include('links.php'); ?>
-
+        <?php include('links.php'); ?>
 	<title></title>
 	<link rel="stylesheet" href="styles1.css">
 
@@ -61,7 +60,7 @@ div.desc {
 <!-- just display all available places-->
 
 <?php 
-$res=mysqli_query($link,"select * from products order by id DESC");
+$res=mysqli_query($link,"select * from products WHERE vacant > 0 ORDER BY house_name");
 while($row=mysqli_fetch_array($res))
 {
 
@@ -117,8 +116,8 @@ autosize(document.querySelectorAll('textarea'));
 				data:{house_id:house_id},
 				success:function(data)
 				{
-					$('#house_detail').html(data);
-					$('#dataModal').modal("show");
+                                    $('#house_detail').html(data);
+                                    $('#dataModal').modal("show");
 				}
 			});
 

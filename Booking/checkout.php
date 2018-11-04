@@ -9,110 +9,14 @@ $cart = new Cart;
 if($cart->total_items() <= 0){
     header("Location: ../display.php");
 }
-
-//$query = $con->query("SELECT * FROM customers WHERE id=(SELECT MAX(id) FROM customers)");
-//$sql = mysqli_fetch_assoc($query);
-//echo $sql['id'];
-// set customer ID in session
-//$_SESSION['sessCustomerID'] = $sql['id'];
-
-// get customer details by session customer ID
-//$query = $con->query("SELECT * FROM customers WHERE id = ".$_SESSION['sessCustomerID']);
-//$custRow = $query->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Check out</title>
     <meta charset="utf-8">
-    <?php include'../links.php'; ?>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-  ul
-        {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        ul li
-        {
-            float: right;
-            width: 200px;
-            height: 40px;
-            background-color: black;
-            opacity: .8;
-            line-height: 40px;
-            text-align: center;
-            font-size: 18px;
-            margin-right: 8px;
-            padding-left: 16px;
-        }
-        ul li a
-        {
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-        ul li a:hover
-        {
-            background-color: green;
-        }
-        ul li:hover ul li
-        {
-            display: block;
-        }
-        ul li ul li
-        {
-            display: none;
-        }
-
-        footer
-{
- bottom: 0px;
- background-color: teal;
- text-align: center;
- width: 100%;
- left: 0;
- color: white;
- height: 100px;
- padding-top: 10px;
- }
-
-        tr {
-            color: black;
-            font-size: 20px;
-            font-family: Arial;
-        }
-
-        .container {
-            padding: 5px;
-            /*background-image:url("./img/fruit2.jpg");*/
-            min-width: 100%;
-            height:900px;
-
-            .topnav a:hover:before {
-                visibility: visible;
-                -webkit-transform:scaleX(1);
-                transform: scaleX(1);
-            }
-        }
-
-        .table {
-            width: 65%;
-            float: left;
-        }
-
-        .footBtn {
-            width: 95%;
-            float: left;
-        }
-
-        .orderBtn {
-            float: right;
-        }
-    </style>
+    <?php include './bootsrap-3.php'; ?>
+    <link rel="stylesheet" href="../css/booking.css">
 </head>
 <body>
 <?php include './nav-bar.php'; ?>
@@ -120,9 +24,8 @@ if($cart->total_items() <= 0){
 <div class="container">
 <br>
 <br>
-
     <h1>Hostel Booking Details</h1>
-	<form name="frmconfirm" action="payment_confirm.php" method="post">
+	
     <table class="table" style="color:black;">
     <thead>
         <tr>
@@ -139,6 +42,8 @@ if($cart->total_items() <= 0){
         if($cart->total_items() > 0){
             //get cart items from session
             $cartItems = $cart->contents();
+            $from = $_GET["from"];
+            $to = $_GET["to"];
             foreach($cartItems as $item){
         ?>
         <tr>
@@ -146,8 +51,8 @@ if($cart->total_items() <= 0){
             <td><?php echo 'Ksh'.$item["price"]; ?></td>
             <td><?php echo $item["qty"]; ?></td>
             <td><?php echo 'Ksh'.$item["subtotal"]; ?></td>
-            <td><?php echo $_GET["from"]; ?></td>
-            <td><?php echo $_GET["to"]; ?></td>
+            <td><?php echo $from ?></td>
+            <td><?php echo $to; ?></td>
         </tr>
         <?php } }else{ ?>
         <tr><td colspan="5"><p>No items in your cart</p></td>
@@ -161,38 +66,10 @@ if($cart->total_items() <= 0){
             <?php } ?>
         </tr>
     </tfoot>
-    </table>
-	
-
-	<!--<table class="table" style="color:white;">
-		<?
-		//fetch user infor from customers table
-		?>
-		<tr> 
-		  <td colspan="2" align="center" class="mytitle" style="color:#999999"> <font color="#ffffff" >Add 
-			comments About your Order</font></td>
-		</tr>
-		<tr> 
-			<td colspan="2" align="center" valign="top" bordercolor="#808080"><textarea name="address" cols="56" rows="5" wrap="VIRTUAL" id="address"></textarea></td>
-		</tr>
-		<tr> 
-		  <td width="143" align="left" valign="top">Telephone</td>
-		  <td width="317" align="left" valign="top"><input name="tel" type="text" id="tel"  /> 
-			<input type="hidden" name="tel" /></td>
-		</tr>
-		<tr> 
-		  <td align="center" valign="top">&nbsp;</td>
-		  <td align="left" align="top"></td>
-		</tr>
-    </table>-->
-	
-	
-	
-	
-	</form>
+    </table>	
     <div class="footBtn">
-        <a href="viewCart.php" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-menu-left"></i> Go Back</a>
-        
+        <?= '<a href="viewCart.php?from='.$from.'&to='.$to.'" class="btn btn-info"><i class="glyphicon glyphicon-menu-left"></i> Go Back</a>'; ?>
+       
 <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -246,7 +123,7 @@ if($cart->total_items() <= 0){
   </div>
 </div>
 
-<?= '<a href="cartAction.php?action=placeOrder&from='.$_GET['from'].'&to='.$_GET['to'].'" class="btn btn-success btn-lg orderBtn">Book Hostel(s)<i class="glyphicon glyphicon-menu-right"></i></a>';?>
+<?= '<a href="cartAction.php?action=placeOrder&from='.$_GET['from'].'&to='.$_GET['to'].'" class="btn btn-success orderBtn">Book Hostel(s)<i class="glyphicon glyphicon-menu-right"></i></a>';?>
         
     </div>
 </div>
