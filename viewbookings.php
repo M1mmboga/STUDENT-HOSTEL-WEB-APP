@@ -54,18 +54,18 @@ function showBookings($result1){
 
     echo "<tr>
             <td><b><u>Hostel Name</td>
+            <td><b><u>Booked by</td>
             <td><b><u>Location</td>
             <td><b><u>Rent Paid</td>
             <td><b><u>Check in</td>
             <td><b><u>Check out</td>
-            <td><b><u>Delete</td>
         </tr>";
     while($data=mysqli_fetch_array($result1))
     {
         echo"
             <tr>
             <td>".$data['house_name']."</td>
-            <td>".$data['house_name']."</td>
+            <td>".$data['fullname']."</td>
             <td>".$data['location']."</td>
             <td>".$data['total_price']."</td>
             <td>".$data['checkin']."</td>
