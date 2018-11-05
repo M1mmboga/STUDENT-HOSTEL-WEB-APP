@@ -58,7 +58,7 @@ if(isset($_POST["submit1"])){
     <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:200px;margin-top:43px;">
 
-    <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn-lg btn-success mr-5" style="border-radius: 30px;"><i class="fa fa-plus" style="font-size: 20px;"></i> Add</button>	
+    <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn-lg btn-success mr-5" style="border-radius: 30px;"><i class="fa fa-plus" style="font-size: 20px;"></i> Add New Accommodation</button>	
     
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">

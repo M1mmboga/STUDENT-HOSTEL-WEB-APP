@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <div class="row jumbotron justify-content-center">  
     <div class="col-4">
+      
       <form method="post" action="slider-data.php" enctype="multipart/form-data">
         <label>Category</label>
         <select name="category" class="form-control"  required>

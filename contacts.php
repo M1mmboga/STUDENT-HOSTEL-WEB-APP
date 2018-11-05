@@ -81,7 +81,7 @@ session_start();
 </div>
 </body>
 <!-- website footer-->
-	<footer>
+	<footer style="position: fixed; height: 120px;">
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 				<p>Contact us : myhostelaccommodation@gmail.com</p>
 

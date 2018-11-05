@@ -80,5 +80,14 @@ function showBookings($result1){
 
 ?>
 </div>
+
+
+
+<!-- website footer-->
+    <footer style="height: 120px; position: fixed;">
+        <p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
+                <p>Contact us : myhostelaccommodation@gmail.com</p>
+        <p><b>Copyright &copy; 2018. Accommodation</b> </p>
+    </footer>
 </body>
 </html>

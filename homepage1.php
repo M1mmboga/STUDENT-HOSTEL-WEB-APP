@@ -51,11 +51,10 @@ session_start();
 <!--why us section -->
 
 <div class="why">
-<<<<<<< HEAD
+
 	<h3 style="font-size: 35px; text-align: center; color: black; font-family: serif;"><i>Find your perfect match</i>
-=======
-    <h3 style="font-size: 35px; text-align: center; color: black; font-family: serif;"><i>Find your perfect match</i><hr style="width: 500px;">
->>>>>>> a3f442ace94b3dbea57dfb97ce0c53294691aaba
+
+
 </h3>
 </div>
 <!-- search bar -->
