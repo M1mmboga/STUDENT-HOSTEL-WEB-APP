@@ -49,7 +49,7 @@ div.desc {
 	
         		<li><a href="myaccount.php">Manage Account</a></li>
 
-		<li><a href="display.php">View Accommodations</a></li>
+		<li><a href="display.php">Accommodations</a></li>
 
 		<li><a href="homepage1.php">Home</a></li>
 	</ul>
