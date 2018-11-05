@@ -16,7 +16,7 @@ mysqli_select_db($link,"myhostel");
 <body>
 
 <?php include './admin-nav.php'; ?>    
-<p class="lead" style="color:black; font-size: 200%; text-align: center;">All accomodations listed</p>;
+<p class="lead" style="color:black; font-size: 200%; text-align: center;">All accomodations listed</p>
 
 <!-- just display all available places-->
 <div class="products">
