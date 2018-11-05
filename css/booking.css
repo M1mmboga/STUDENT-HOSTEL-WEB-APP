@@ -1,0 +1,37 @@
+
+        tr {
+            color: black;
+            font-size: 17px;
+            /*font-family: Arial;*/
+        }
+
+/*        .container {
+            padding: 5px;
+            background-image:url("./img/fruit2.jpg");
+            min-width: 100%;
+            height:900px;
+
+            .topnav a:hover:before {
+                visibility: visible;
+                -webkit-transform:scaleX(1);
+                transform: scaleX(1);
+            }
+        }*/
+
+        .table {
+/*            width: 65%;*/
+            float: left;
+        }
+
+        .footBtn {
+            width: 95%;
+            float: left;
+        }
+
+        .orderBtn {
+            float: right;
+        }
+        
+        input[type="number"] {
+            width: 20%;
+        }

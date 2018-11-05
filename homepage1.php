@@ -51,45 +51,15 @@ session_start();
 <!--why us section -->
 
 <div class="why">
+<<<<<<< HEAD
 	<h3 style="font-size: 35px; text-align: center; color: black; font-family: serif;"><i>Find your perfect match</i>
+=======
+    <h3 style="font-size: 35px; text-align: center; color: black; font-family: serif;"><i>Find your perfect match</i><hr style="width: 500px;">
+>>>>>>> a3f442ace94b3dbea57dfb97ce0c53294691aaba
 </h3>
-
+</div>
 <!-- search bar -->
 <?php include('slider.php');?>
-
-
-<!-- images to explain why us-->	
-
-<!--
-<p style="font-family: montserrat; text-align: center; font-size: 35px;"><u>Why use Myhostel.com?</u></p>
-<div class="row">
-	<div class="card col-md-4 d-flex align-items-stretch" style="width: 18rem;">
-  <img src="security.png" alt="Security" class="card-img-top">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-
-<div class="card col-md-4 d-flex align-items-stretch" style="width: 18rem;">
-  <img src="affordability.png" alt="Affordability"  class="card-img-top" style="height: 200px;">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-
-<div class="card col-md-4 d-flex align-items-stretch" style="width: 18rem;">
- <img src="legitimacy.png" alt="Legitimacy" class="card-img-top">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-
-</div>
-
-</div>
-<br><br>
--->
-
 
 <!--== Services Area Start ==-->
 <section id="service-area" class="section-padding">
@@ -204,7 +174,6 @@ session_start();
 	<footer style="height: 120px;">
 		<p>HOME | ABOUT | SERVICES | CONTACT US | LOGIN</p>
 				<p>Contact us : myhostelaccommodation@gmail.com</p>
-
 		<p><b>Copyright &copy; 2018. Accommodation</b> </p>
 	</footer>
 	

@@ -3,12 +3,14 @@
 include '../php/connect.php';
 // initialize shopping cart class
 include './Cart.php';
+include '../Classes/Bookings.php';
    if(session_status() == PHP_SESSION_NONE){
      session_start();
    }
 
 
 $cart = new Cart;
+$book = new Bookings();
 
 if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
     if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['id'])){
@@ -16,7 +18,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         
         $cart->destroy();//To ensure that not more than one booking is made at a time 
         // get product details
-
+        $_SESSION['id'] = $productID;
         $query = $conn->query("SELECT * FROM products WHERE id = ".$productID);
         $row = $query->fetch_assoc();
         $itemData = array(
@@ -58,12 +60,18 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("sssss",$_SESSION['userid'], $item['id'], $item['subtotal'],$from,$to);
                 $bool = $stmt->execute();
+                
                 $orderID = $stmt->insert_id;
-
+                $id = $_SESSION['id'];
+                
+                if($bool){
+                    $data = $book->getVacancyInfo($conn, $id);
+                    $book->incrementBooking($conn,$data);
+                }
+                
+                //Update number of rooms available
             }
             
-            
-
             if($bool && isset($orderID)){
                 $cart->destroy();
                 header("Location: ./orderSuccess.php?id=".$orderID);

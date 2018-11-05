@@ -5,57 +5,43 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-	<title>Searches</title>
-
-		<?php include('links.php');?>
-
-<link rel="stylesheet" href="styles1.css">
-<script src="js/main.js" type="text/javascript"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Searches</title>
+            <?php include('links.php');?>
+    <link rel="stylesheet" href="styles1.css">
+    <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
 <script>	
-	$(document).on('click', '#book_btn', function(event){
-			event.preventDefault();
+    $(function(){
+        $(document).on('click', '.book_btn', function(event){
+            event.preventDefault();
 
-			var href = $(this).attr('href');
-			var user_id = $('#user_id').val();
+            var href = $(this).attr('href');
+            var user_id = $('#user_id').val();
 
-			$.ajax({
-				url:"php/check-booked.php",
-				method:"post",
-				data:{user_id:user_id},
-				success:function(data)
-				{
-					if(data == ""){
-						location.replace(href);
-					}else{
-						alert("You already made a booking");
-					}
-				}
-			});
-
-		});
+            $.ajax({
+                url:"php/check-booked.php",
+                method:"post",
+                data:{user_id:user_id},
+                success:function(data){
+                    if(data == ""){
+                            location.replace(href);
+                    }else{
+                          alert("You already made a booking");
+                    }
+                }
+            });
+        });
+    });
 
 </script>	
 
 <?php include ("nav-bar.php"); ?>
 
 <div class="container-fluid padding">
-	<div class="row-padding">
+	<div class="row">
 
 <?php
 
@@ -74,7 +60,7 @@ if(isset($_POST['submit'])){
 
 
 	//Search bar 
- 	$query = "SELECT * FROM `products` WHERE location = ? AND category = ? AND house_price BETWEEN ? AND ?";
+ 	$query = "SELECT * FROM `products` WHERE location = ? AND category = ? AND house_price BETWEEN ? AND ? AND vacant > 0";
 	$stmt = $conn->prepare($query);
 	$stmt->bind_param("ssss",$location, $category,$min,$max);
 	$stmt->execute();
@@ -86,10 +72,7 @@ if(isset($_POST['submit'])){
 	if($num_rows>0){
 		showCards($result);
 	}else{
-		//showNone();
-				noResults();
-				//$_SESSION['message'] = "That hostel is not available";
-
+            noResults();
 	}
 
 }
@@ -109,16 +92,16 @@ function showCards($result){
 
 		$data.= '
 			<div class="col-md-4">
-				<div class="card">
-					<img class="card-img-top" src="'.$image.'">
-					<div class="card-body">
-						<h4 class="card-title">'.$house_name.'</h4>
-						<p class="card-text">'.$house_description.'</p>
-						<a class="btn btn-outline-primary" href="Booking/cartAction.php?action=addToCart&id='.$id.'" id="book_btn">Book</a>
-						<a class="btn btn-outline-primary" href="display.php">View</a>
-						<a class="btn btn-outline-primary" href="homepage1.php">Back Home</a>
-					</div>
-				</div>
+                            <div class="card">
+                                <img class="card-img-top" src="'.$image.'">
+                                <div class="card-body">
+                                        <h4 class="card-title">'.$house_name.'</h4>
+                                        <p class="card-text">'.$house_description.'</p>
+                                        <a class="btn btn-outline-primary book_btn" href="Booking/cartAction.php?action=addToCart&id='.$id.'">Book</a>
+                                        <a class="btn btn-outline-primary" href="display.php">View</a>
+                                        <a class="btn btn-outline-primary" href="homepage1.php">Back Home</a>
+                                </div>
+                            </div>
 			</div>
 		';
 
@@ -131,9 +114,9 @@ function showCards($result){
 
 function noResults(){
             echo '
-                <div class="alert alert-warning">No results found! <br>
-                Search again<br>
-                Or view all or available hostels <a href="display.php">here</a></div>
+                <center class="alert alert-warning col-12">No results found!
+                Search again
+                Or view all or available hostels <a href="display.php">here</a></center>
 
             ';
             include('slider.php');
